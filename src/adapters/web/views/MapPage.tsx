@@ -3,8 +3,8 @@
 /** @jsxImportSource preact */
 import { h } from 'preact';
 
-export const MapPage = ({ initialPlaces, initialView }) => {
-  const jsonState = JSON.stringify({ places: initialPlaces, view: initialView });
+export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
+  const jsonState = JSON.stringify({ places: initialPlaces, view: initialView, mapApiKey });
 
   return (
     <html>
@@ -46,11 +46,11 @@ export const MapPage = ({ initialPlaces, initialView }) => {
         */}
         <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `
-          const { places, view } = window.__INITIAL_STATE__;
+          const { places, view, mapApiKey } = window.__INITIAL_STATE__;
 
           const map = new maplibregl.Map({
             container: 'map',
-            style: 'https://demotiles.maplibre.org/style.json', // Demo style
+            style: \`https://api.maptiler.com/maps/streets-v2/style.json?key=\${mapApiKey}\`,
             center: [view.lon, view.lat],
             zoom: view.zoom
           });

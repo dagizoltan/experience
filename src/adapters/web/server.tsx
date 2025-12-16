@@ -43,7 +43,9 @@ app.get('/', async (c) => {
     maxLon: view.maxLon
   });
 
-  const html = render(<MapPage initialPlaces={places} initialView={view} />);
+  const mapApiKey = Deno.env.get("MAPTILER_KEY") ?? "l6tjy6mKiv4oNiZNY4pt";
+
+  const html = render(<MapPage initialPlaces={places} initialView={view} mapApiKey={mapApiKey} />);
   return c.html('<!DOCTYPE html>' + html);
 });
 

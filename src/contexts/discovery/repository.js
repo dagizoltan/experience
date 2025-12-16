@@ -98,5 +98,20 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     return places.map(p => p.value).filter(p => p !== null);
   };
 
-  return { save, findInBounds, search };
+  const removeAll = async () => {
+    const prefixes = [
+      ['tenant', 'default', 'places'],
+      ['index_geo'],
+      ['index_search']
+    ];
+
+    for (const prefix of prefixes) {
+      const iter = kv.list({ prefix });
+      for await (const entry of iter) {
+        await kv.delete(entry.key);
+      }
+    }
+  };
+
+  return { save, findInBounds, search, removeAll };
 }
