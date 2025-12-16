@@ -1,0 +1,5516 @@
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1744
+    - 41.4036
+  properties:
+    name: "Sagrada Família"
+    category: culture
+    tags:
+    - gaudi
+    - church
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1649
+    - 41.3917
+  properties:
+    name: "Casa Batlló"
+    category: culture
+    tags:
+    - gaudi
+    - modernisme
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.162
+    - 41.3954
+  properties:
+    name: "Casa Milà (La Pedrera)"
+    category: culture
+    tags:
+    - gaudi
+    - modernisme
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1809
+    - 41.3853
+  properties:
+    name: "Picasso Museum"
+    category: culture
+    tags:
+    - art
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1228
+    - 41.3809
+  properties:
+    name: "Camp Nou"
+    category: culture
+    tags:
+    - football
+    - barca
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1769
+    - 41.3825
+  properties:
+    name: "Gothic Quarter"
+    category: culture
+    tags:
+    - history
+    - old_town
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1753
+    - 41.3875
+  properties:
+    name: "Palau de la Música Catalana"
+    category: culture
+    tags:
+    - music
+    - architecture
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1762
+    - 41.384
+  properties:
+    name: "Cathedral of Barcelona"
+    category: culture
+    tags:
+    - gothic
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1534
+    - 41.3686
+  properties:
+    name: "MNAC (National Art Museum)"
+    category: culture
+    tags:
+    - art
+    - museum
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1598
+    - 41.3686
+  properties:
+    name: "Fundació Joan Miró"
+    category: culture
+    tags:
+    - art
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1744
+    - 41.4124
+  properties:
+    name: "Recinte Modernista de Sant Pau"
+    category: culture
+    tags:
+    - hospital
+    - architecture
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1821
+    - 41.3835
+  properties:
+    name: "Santa Maria del Mar"
+    category: culture
+    tags:
+    - gothic
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1469
+    - 41.3695
+  properties:
+    name: "Poble Espanyol"
+    category: culture
+    tags:
+    - architecture
+    - village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1806
+    - 41.3911
+  properties:
+    name: "Arc de Triomf"
+    category: culture
+    tags:
+    - monument
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8262
+    - 41.9875
+  properties:
+    name: "Catedral de Girona"
+    category: culture
+    tags:
+    - gothic
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8261
+    - 41.9866
+  properties:
+    name: "Jewish Quarter (Girona)"
+    category: culture
+    tags:
+    - history
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.9596
+    - 42.268
+  properties:
+    name: "Dali Museum"
+    category: culture
+    tags:
+    - art
+    - surrealism
+    - figueres
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.934
+    - 41.7166
+  properties:
+    name: "Tossa de Mar Castle"
+    category: culture
+    tags:
+    - castle
+    - beach
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.2074
+    - 41.9546
+  properties:
+    name: "Begur Castle"
+    category: culture
+    tags:
+    - view
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1206
+    - 42.1337
+  properties:
+    name: "Empúries Ruins"
+    category: culture
+    tags:
+    - greek
+    - roman
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.2593
+    - 41.1148
+  properties:
+    name: "Amphitheatre of Tarragona"
+    category: culture
+    tags:
+    - roman
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.2415
+    - 41.1444
+  properties:
+    name: "Pont del Diable"
+    category: culture
+    tags:
+    - aqueduct
+    - roman
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.8115
+    - 41.2343
+  properties:
+    name: "Sitges Church"
+    category: culture
+    tags:
+    - beach
+    - iconic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.8375
+    - 41.5931
+  properties:
+    name: "Montserrat Monastery"
+    category: culture
+    tags:
+    - mountain
+    - monastery
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.8499
+    - 42.519
+  properties:
+    name: "Taüll Churches"
+    category: culture
+    tags:
+    - romanesque
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.079
+    - 41.381
+  properties:
+    name: "Monestir de Poblet"
+    category: culture
+    tags:
+    - cistercian
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.3622
+    - 41.3556
+  properties:
+    name: "Monestir de Santes Creus"
+    category: culture
+    tags:
+    - cistercian
+    - gothic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.6853
+    - 41.9142
+  properties:
+    name: "Castell de Cardona"
+    category: culture
+    tags:
+    - castle
+    - hotel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.7001
+    - 42.1996
+  properties:
+    name: "Besalú Bridge"
+    category: culture
+    tags:
+    - medieval
+    - bridge
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.2562
+    - 41.1165
+  properties:
+    name: "Tarragona Roman Circus"
+    category: culture
+    tags:
+    - roman
+    - ruins
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.0287
+    - 41.3623
+  properties:
+    name: "Colonia Güell"
+    category: culture
+    tags:
+    - gaudi
+    - crypt
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1742
+    - 41.379
+  properties:
+    name: "Palau Güell"
+    category: culture
+    tags:
+    - gaudi
+    - palace
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1507
+    - 41.4035
+  properties:
+    name: "Casa Vicens"
+    category: culture
+    tags:
+    - gaudi
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.2563
+    - 41.9288
+  properties:
+    name: "Vic Cathedral"
+    category: culture
+    tags:
+    - neoclassical
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.5968
+    - 41.0425
+  properties:
+    name: "Castell de Miravet"
+    category: culture
+    tags:
+    - castle
+    - river
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.627
+    - 41.6181
+  properties:
+    name: "La Seu Vella (Lleida)"
+    category: culture
+    tags:
+    - cathedral
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1661
+    - 41.3635
+  properties:
+    name: "Castell de Montjuïc"
+    category: culture
+    tags:
+    - castle
+    - military
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.155
+    - 41.355
+  properties:
+    name: "Cementiri de Montjuïc"
+    category: culture
+    tags:
+    - cemetery
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1748
+    - 41.4116
+  properties:
+    name: "Hospital de Sant Pau"
+    category: culture
+    tags:
+    - modernisme
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1756
+    - 41.3761
+  properties:
+    name: "Museu Marítim de Barcelona"
+    category: culture
+    tags:
+    - maritime
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1502
+    - 41.3706
+  properties:
+    name: "Pavelló Mies van der Rohe"
+    category: culture
+    tags:
+    - modernism
+    - architecture
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1716
+    - 41.3817
+  properties:
+    name: "Mercat de la Boqueria"
+    category: gastronomy
+    tags:
+    - market
+    - food
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1811
+    - 41.3845
+  properties:
+    name: "El Xampanyet"
+    category: gastronomy
+    tags:
+    - tapas
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1533
+    - 41.3878
+  properties:
+    name: "Disfrutar"
+    category: gastronomy
+    tags:
+    - michelin
+    - innovative
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1565
+    - 41.3768
+  properties:
+    name: "Tickets (Teatre)"
+    category: gastronomy
+    tags:
+    - tapas
+    - elbulli
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1743
+    - 41.3807
+  properties:
+    name: "Can Culleretes"
+    category: gastronomy
+    tags:
+    - historic
+    - catalan
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1738
+    - 41.3858
+  properties:
+    name: "Els Quatre Gats"
+    category: gastronomy
+    tags:
+    - picasso
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1837
+    - 41.3823
+  properties:
+    name: "7 Portes"
+    category: gastronomy
+    tags:
+    - paella
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1643
+    - 41.3734
+  properties:
+    name: "Quimet & Quimet"
+    category: gastronomy
+    tags:
+    - tapas
+    - bodega
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8083
+    - 41.9937
+  properties:
+    name: "El Celler de Can Roca"
+    category: gastronomy
+    tags:
+    - michelin
+    - world_best
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1843
+    - 41.3817
+  properties:
+    name: "Can Paixano (La Xampanyeria)"
+    category: gastronomy
+    tags:
+    - cava
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1627
+    - 41.3924
+  properties:
+    name: "Cervecería Catalana"
+    category: gastronomy
+    tags:
+    - tapas
+    - popular
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1678
+    - 41.3895
+  properties:
+    name: "El Nacional"
+    category: gastronomy
+    tags:
+    - food_hall
+    - beautiful
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1892
+    - 41.3775
+  properties:
+    name: "Can Majó"
+    category: gastronomy
+    tags:
+    - seafood
+    - beach
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1725
+    - 41.3795
+  properties:
+    name: "Bar Cañete"
+    category: gastronomy
+    tags:
+    - tapas
+    - lively
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1689
+    - 41.3828
+  properties:
+    name: "Dos Palillos"
+    category: gastronomy
+    tags:
+    - asian
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1625
+    - 41.3965
+  properties:
+    name: "Alkimia"
+    category: gastronomy
+    tags:
+    - michelin
+    - design
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.161
+    - 41.3923
+  properties:
+    name: "Lasarte"
+    category: gastronomy
+    tags:
+    - michelin
+    - luxury
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1378
+    - 41.4105
+  properties:
+    name: "ABaC"
+    category: gastronomy
+    tags:
+    - michelin
+    - hotel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1652
+    - 41.3745
+  properties:
+    name: "Enigma"
+    category: gastronomy
+    tags:
+    - innovative
+    - adría
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1612
+    - 41.3925
+  properties:
+    name: "Moments"
+    category: gastronomy
+    tags:
+    - michelin
+    - hotel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1331
+    - 41.3872
+  properties:
+    name: "Cocina Hermanos Torres"
+    category: gastronomy
+    tags:
+    - michelin
+    - kitchen
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1585
+    - 41.392
+  properties:
+    name: "Gresca"
+    category: gastronomy
+    tags:
+    - bistrot
+    - wine
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1622
+    - 41.3955
+  properties:
+    name: "Bar Mut"
+    category: gastronomy
+    tags:
+    - wine
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1685
+    - 41.3912
+  properties:
+    name: "Tapas 24"
+    category: gastronomy
+    tags:
+    - tapas
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.156
+    - 41.3755
+  properties:
+    name: "Bodega 1900"
+    category: gastronomy
+    tags:
+    - vermouth
+    - bodega
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1718
+    - 41.3817
+  properties:
+    name: "Pinotxo Bar"
+    category: gastronomy
+    tags:
+    - market
+    - breakfast
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.822
+    - 41.9835
+  properties:
+    name: "Can Roca (Girona Bar)"
+    category: gastronomy
+    tags:
+    - traditional
+    - cheap
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8235
+    - 41.9845
+  properties:
+    name: "Nu Restaurant"
+    category: gastronomy
+    tags:
+    - asian
+    - fusion
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.4985
+    - 42.1865
+  properties:
+    name: "Les Cols"
+    category: gastronomy
+    tags:
+    - michelin
+    - nature
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1605
+    - 42.3685
+  properties:
+    name: "Miramar"
+    category: gastronomy
+    tags:
+    - seafood
+    - michelin
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.9465
+    - 41.8215
+  properties:
+    name: "Els Tinars"
+    category: gastronomy
+    tags:
+    - traditional
+    - michelin
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.4465
+    - 42.2355
+  properties:
+    name: "Ca l'Enric"
+    category: gastronomy
+    tags:
+    - mountain
+    - michelin
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1705
+    - 41.3845
+  properties:
+    name: "Boadas Cocktails"
+    category: gastronomy
+    tags:
+    - cocktail
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.172
+    - 41.382
+  properties:
+    name: "Bar Central"
+    category: gastronomy
+    tags:
+    - market
+    - fresh
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1865
+    - 41.3805
+  properties:
+    name: "El Vaso de Oro"
+    category: gastronomy
+    tags:
+    - beer
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1895
+    - 41.378
+  properties:
+    name: "La Cova Fumada"
+    category: gastronomy
+    tags:
+    - bomba
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1885
+    - 41.379
+  properties:
+    name: "Jai-Ca"
+    category: gastronomy
+    tags:
+    - vermouth
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1705
+    - 41.389
+  properties:
+    name: "Mussol Casp"
+    category: gastronomy
+    tags:
+    - catalan
+    - grill
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1665
+    - 41.3895
+  properties:
+    name: "Ciudad Condal"
+    category: gastronomy
+    tags:
+    - tapas
+    - busy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1525
+    - 41.391
+  properties:
+    name: "Paco Meralgo"
+    category: gastronomy
+    tags:
+    - tapas
+    - seafood
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1527
+    - 41.4145
+  properties:
+    name: "Park Güell"
+    category: nature
+    tags:
+    - gaudi
+    - park
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1874
+    - 41.3883
+  properties:
+    name: "Ciutadella Park"
+    category: nature
+    tags:
+    - park
+    - lake
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1925
+    - 41.3784
+  properties:
+    name: "Barceloneta Beach"
+    category: nature
+    tags:
+    - beach
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.2067
+    - 41.3938
+  properties:
+    name: "Bogatell Beach"
+    category: nature
+    tags:
+    - beach
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.2779
+    - 42.2887
+  properties:
+    name: "Cadaqués"
+    category: nature
+    tags:
+    - beach
+    - white_village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.3225
+    - 42.3193
+  properties:
+    name: "Cap de Creus"
+    category: nature
+    tags:
+    - coast
+    - hiking
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.951
+    - 41.745
+  properties:
+    name: "Cala Pola"
+    category: nature
+    tags:
+    - beach
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1772
+    - 41.8767
+  properties:
+    name: "Jardins de Cap Roig"
+    category: nature
+    tags:
+    - garden
+    - botanic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.8164
+    - 40.7245
+  properties:
+    name: "Delta de l'Ebre"
+    category: nature
+    tags:
+    - park
+    - birds
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.7011
+    - 42.2372
+  properties:
+    name: "Pedraforca"
+    category: nature
+    tags:
+    - mountain
+    - hiking
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.5135
+    - 42.1488
+  properties:
+    name: "La Fageda d'en Jordà"
+    category: nature
+    tags:
+    - forest
+    - volcano
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.9423
+    - 42.569
+  properties:
+    name: "Aigüestortes National Park"
+    category: nature
+    tags:
+    - park
+    - lakes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.7578
+    - 42.1197
+  properties:
+    name: "Estany de Banyoles"
+    category: nature
+    tags:
+    - lake
+    - rowing
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1539
+    - 42.3975
+  properties:
+    name: "Vall de Núria"
+    category: nature
+    tags:
+    - mountain
+    - ski
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.4005
+    - 41.7785
+  properties:
+    name: "Montseny Natural Park"
+    category: nature
+    tags:
+    - forest
+    - unesco
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.9005
+    - 41.2885
+  properties:
+    name: "Garraf Natural Park"
+    category: nature
+    tags:
+    - cliffs
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.2265
+    - 41.9615
+  properties:
+    name: "Cala Sa Tuna"
+    category: nature
+    tags:
+    - beach
+    - picturesque
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.2185
+    - 41.936
+  properties:
+    name: "Cala Aiguablava"
+    category: nature
+    tags:
+    - beach
+    - blue_water
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1555
+    - 41.8625
+  properties:
+    name: "Platja de Castell"
+    category: nature
+    tags:
+    - beach
+    - wild
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.6965
+    - 42.0965
+  properties:
+    name: "Congost de Mont-rebei"
+    category: nature
+    tags:
+    - canyon
+    - kayak
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.6365
+    - 42.2855
+  properties:
+    name: "Serra del Cadí"
+    category: nature
+    tags:
+    - mountain
+    - park
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.0005
+    - 42.5805
+  properties:
+    name: "Estany de Sant Maurici"
+    category: nature
+    tags:
+    - lake
+    - iconic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.0085
+    - 42.2825
+  properties:
+    name: "Fonts del Llobregat"
+    category: nature
+    tags:
+    - waterfall
+    - source
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.3945
+    - 41.9705
+  properties:
+    name: "Pantà de Sau"
+    category: nature
+    tags:
+    - reservoir
+    - bell_tower
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.4705
+    - 42.0085
+  properties:
+    name: "Salt de Sallent"
+    category: nature
+    tags:
+    - waterfall
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.7265
+    - 40.6125
+  properties:
+    name: "Platja del Trabucador"
+    category: nature
+    tags:
+    - beach
+    - kitesurf
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.323
+    - 42.321
+  properties:
+    name: "Far de Cap de Creus"
+    category: nature
+    tags:
+    - lighthouse
+    - end_of_world
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.5505
+    - 42.1505
+  properties:
+    name: "Zona Volcànica de la Garrotxa"
+    category: nature
+    tags:
+    - volcanoes
+    - green
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.8265
+    - 42.7755
+  properties:
+    name: "Saut deth Pish"
+    category: nature
+    tags:
+    - waterfall
+    - aran
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.7865
+    - 42.4635
+  properties:
+    name: "Estany de Malniu"
+    category: nature
+    tags:
+    - lake
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.813
+    - 41.688
+  properties:
+    name: "Cala Treumal"
+    category: nature
+    tags:
+    - beach
+    - blanes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8025
+    - 41.6755
+  properties:
+    name: "Jardí Botànic Marimurtra"
+    category: nature
+    tags:
+    - garden
+    - cliffs
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.9465
+    - 41.7335
+  properties:
+    name: "Cala Giverola"
+    category: nature
+    tags:
+    - beach
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.812
+    - 40.758
+  properties:
+    name: "Platja de la Marquesa"
+    category: nature
+    tags:
+    - beach
+    - dunes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.055
+    - 42.215
+  properties:
+    name: "Gorgs de la Cabriola"
+    category: nature
+    tags:
+    - waterfall
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.995
+    - 41.988
+  properties:
+    name: "Riera de Merlès"
+    category: nature
+    tags:
+    - river
+    - swim
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.2055
+    - 42.0005
+  properties:
+    name: "Platja de Pals"
+    category: nature
+    tags:
+    - beach
+    - long
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.223
+    - 42.039
+  properties:
+    name: "Illes Medes"
+    category: nature
+    tags:
+    - islands
+    - diving
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.21
+    - 41.954
+  properties:
+    name: "Camí de Ronda"
+    category: nature
+    tags:
+    - hiking
+    - coast
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.0195
+    - 41.6415
+  properties:
+    name: "La Mola"
+    category: nature
+    tags:
+    - mountain
+    - monastery
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1517
+    - 41.3712
+  properties:
+    name: "Magic Fountain of Montjuïc"
+    category: nightlife
+    tags:
+    - show
+    - lights
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1911
+    - 41.3977
+  properties:
+    name: "Razzmatazz"
+    category: nightlife
+    tags:
+    - club
+    - music
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1695
+    - 41.3744
+  properties:
+    name: "Sala Apolo"
+    category: nightlife
+    tags:
+    - club
+    - concerts
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1488
+    - 41.397
+  properties:
+    name: "Sutton Club"
+    category: nightlife
+    tags:
+    - club
+    - posh
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1965
+    - 41.3857
+  properties:
+    name: "Opium Barcelona"
+    category: nightlife
+    tags:
+    - club
+    - beach
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1969
+    - 41.3855
+  properties:
+    name: "Pacha Barcelona"
+    category: nightlife
+    tags:
+    - club
+    - beach
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1824
+    - 41.3837
+  properties:
+    name: "Paradiso"
+    category: nightlife
+    tags:
+    - cocktails
+    - speakeasy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1804
+    - 41.383
+  properties:
+    name: "Dr. Stravinsky"
+    category: nightlife
+    tags:
+    - cocktails
+    - mixology
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1718
+    - 41.3787
+  properties:
+    name: "Bar Marsella"
+    category: nightlife
+    tags:
+    - absinthe
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1908
+    - 41.3685
+  properties:
+    name: "W Hotel"
+    category: nightlife
+    tags:
+    - hotel
+    - iconic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1908
+    - 41.3685
+  properties:
+    name: "Eclipse Bar"
+    category: nightlife
+    tags:
+    - view
+    - cocktails
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.7833
+    - 41.9667
+  properties:
+    name: "La Mirona"
+    category: nightlife
+    tags:
+    - concerts
+    - girona
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1735
+    - 41.3795
+  properties:
+    name: "Moog"
+    category: nightlife
+    tags:
+    - techno
+    - club
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1745
+    - 41.3798
+  properties:
+    name: "Jamboree"
+    category: nightlife
+    tags:
+    - jazz
+    - club
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1748
+    - 41.38
+  properties:
+    name: "Sidecar Factory Club"
+    category: nightlife
+    tags:
+    - rock
+    - live
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.152
+    - 41.3965
+  properties:
+    name: "Bling Bling"
+    category: nightlife
+    tags:
+    - club
+    - posh
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1505
+    - 41.4005
+  properties:
+    name: "Otto Zutz"
+    category: nightlife
+    tags:
+    - club
+    - urban
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1485
+    - 41.368
+  properties:
+    name: "La Terrrazza"
+    category: nightlife
+    tags:
+    - open_air
+    - house
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1695
+    - 41.3865
+  properties:
+    name: "City Hall"
+    category: nightlife
+    tags:
+    - club
+    - techno
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1755
+    - 41.3805
+  properties:
+    name: "Macarena Club"
+    category: nightlife
+    tags:
+    - microclub
+    - techno
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.161
+    - 41.4035
+  properties:
+    name: "Heliogàbal"
+    category: nightlife
+    tags:
+    - live
+    - gracia
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.3815
+  properties:
+    name: "L'Ovella Negra"
+    category: nightlife
+    tags:
+    - beer
+    - rustic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.173
+    - 41.378
+  properties:
+    name: "London Bar"
+    category: nightlife
+    tags:
+    - historic
+    - modernist
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.197
+    - 41.386
+  properties:
+    name: "Casino Barcelona"
+    category: nightlife
+    tags:
+    - casino
+    - games
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.196
+    - 41.385
+  properties:
+    name: "Icebarcelona"
+    category: nightlife
+    tags:
+    - ice
+    - drinks
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.148
+    - 41.395
+  properties:
+    name: "Luz de Gas"
+    category: nightlife
+    tags:
+    - concerts
+    - club
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.133
+    - 41.388
+  properties:
+    name: "Bikini"
+    category: nightlife
+    tags:
+    - concerts
+    - club
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.19
+    - 41.399
+  properties:
+    name: "Vol"
+    category: nightlife
+    tags:
+    - rock
+    - bar
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.166
+    - 41.383
+  properties:
+    name: "Nevermind"
+    category: nightlife
+    tags:
+    - skate
+    - bar
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.179
+    - 41.38
+  properties:
+    name: "Sor Rita"
+    category: nightlife
+    tags:
+    - kitsch
+    - cocktails
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.163
+    - 41.3788
+  properties:
+    name: "Sant Antoni Market"
+    category: shopping
+    tags:
+    - market
+    - renovated
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1654
+    - 41.3926
+  properties:
+    name: "Passeig de Gràcia"
+    category: shopping
+    tags:
+    - luxury
+    - brands
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1729
+    - 41.3865
+  properties:
+    name: "Portal de l'Àngel"
+    category: shopping
+    tags:
+    - highstreet
+    - busy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.3436
+    - 41.6112
+  properties:
+    name: "La Roca Village"
+    category: shopping
+    tags:
+    - outlet
+    - brands
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1356
+    - 41.3892
+  properties:
+    name: "L'Illa Diagonal"
+    category: shopping
+    tags:
+    - mall
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1862
+    - 41.401
+  properties:
+    name: "Encants Vells"
+    category: shopping
+    tags:
+    - flea_market
+    - antiques
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1994
+    - 41.4402
+  properties:
+    name: "La Maquinista"
+    category: shopping
+    tags:
+    - mall
+    - open_air
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.2155
+    - 41.4111
+  properties:
+    name: "Diagonal Mar"
+    category: shopping
+    tags:
+    - mall
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8228
+    - 41.9818
+  properties:
+    name: "Mercat del Lleó"
+    category: shopping
+    tags:
+    - market
+    - girona
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.7937
+    - 41.9564
+  properties:
+    name: "Espai Gironès"
+    category: shopping
+    tags:
+    - mall
+    - salt
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.252
+    - 41.1158
+  properties:
+    name: "Mercat Central de Tarragona"
+    category: shopping
+    tags:
+    - market
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1732
+    - 41.3828
+  properties:
+    name: "Carrer de Petritxol"
+    category: shopping
+    tags:
+    - chocolate
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1835
+    - 41.3855
+  properties:
+    name: "El Born Centre Cultural"
+    category: shopping
+    tags:
+    - history
+    - shops
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.156
+    - 41.4025
+  properties:
+    name: "Gràcia Neighborhood"
+    category: shopping
+    tags:
+    - boutiques
+    - local
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.177
+    - 41.381
+  properties:
+    name: "Carrer d'Avinyó"
+    category: shopping
+    tags:
+    - fashion
+    - trendy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1735
+    - 41.384
+  properties:
+    name: "Carrer de la Portaferrissa"
+    category: shopping
+    tags:
+    - pedestrian
+    - shops
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.149
+    - 41.3755
+  properties:
+    name: "Arenas de Barcelona"
+    category: shopping
+    tags:
+    - mall
+    - bullring
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.193
+    - 41.406
+  properties:
+    name: "Glòries Shopping Centre"
+    category: shopping
+    tags:
+    - mall
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.022
+    - 41.306
+  properties:
+    name: "Viladecans The Style Outlets"
+    category: shopping
+    tags:
+    - outlet
+    - clothes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.428
+    - 41.554
+  properties:
+    name: "Mataró Parc"
+    category: shopping
+    tags:
+    - mall
+    - mataro
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.88
+    - 42.404
+  properties:
+    name: "Gran Jonquera Outlet"
+    category: shopping
+    tags:
+    - outlet
+    - border
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.178
+    - 41.386
+  properties:
+    name: "Mercat de Santa Caterina"
+    category: shopping
+    tags:
+    - market
+    - roof
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.3855
+  properties:
+    name: "El Triangle"
+    category: shopping
+    tags:
+    - mall
+    - central
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.182
+    - 41.375
+  properties:
+    name: "Maremagnum"
+    category: shopping
+    tags:
+    - mall
+    - harbour
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.163
+    - 41.39
+  properties:
+    name: "Rambla de Catalunya"
+    category: shopping
+    tags:
+    - boulevard
+    - shops
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.135
+    - 41.375
+  properties:
+    name: "Carrer de Sants"
+    category: shopping
+    tags:
+    - local
+    - busy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.168
+    - 41.38
+  properties:
+    name: "L'Eix Comercial Raval"
+    category: shopping
+    tags:
+    - vintage
+    - unique
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.067
+    - 41.472
+  properties:
+    name: "Mercantic"
+    category: shopping
+    tags:
+    - antiques
+    - market
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.21
+    - 41.405
+  properties:
+    name: "Palo Alto Market"
+    category: shopping
+    tags:
+    - design
+    - weekend
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.189
+    - 41.378
+  properties:
+    name: "Lost & Found Market"
+    category: shopping
+    tags:
+    - vintage
+    - secondhand
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1824
+    - 41.3867
+  properties:
+    name: "Aire Ancient Baths"
+    category: wellness
+    tags:
+    - spa
+    - relax
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.115
+    - 41.4172
+  properties:
+    name: "Carretera de les Aigües"
+    category: wellness
+    tags:
+    - running
+    - cycling
+    - views
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.189
+    - 41.3742
+  properties:
+    name: "Club Natació Atlètic-Barceloneta"
+    category: wellness
+    tags:
+    - pool
+    - gym
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8258
+    - 41.9872
+  properties:
+    name: "Banys Àrabs"
+    category: wellness
+    tags:
+    - history
+    - girona
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8058
+    - 41.8369
+  properties:
+    name: "Balneari Vichy Catalan"
+    category: wellness
+    tags:
+    - spa
+    - thermal
+    - hotel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.6625
+    - 41.8596
+  properties:
+    name: "Magma Centre Lúdic"
+    category: wellness
+    tags:
+    - spa
+    - thermal
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1466
+    - 41.4184
+  properties:
+    name: "Parc de la Creueta del Coll"
+    category: wellness
+    tags:
+    - pool
+    - relax
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1908
+    - 41.3685
+  properties:
+    name: "W Barcelona Spa"
+    category: wellness
+    tags:
+    - spa
+    - luxury
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1965
+    - 41.3865
+  properties:
+    name: "Hotel Arts 43 The Spa"
+    category: wellness
+    tags:
+    - spa
+    - views
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.171
+    - 41.3905
+  properties:
+    name: "Mayan Secret Spa"
+    category: wellness
+    tags:
+    - spa
+    - mayan
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.149
+    - 41.3955
+  properties:
+    name: "Rituels d'Orient"
+    category: wellness
+    tags:
+    - hammam
+    - massage
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.155
+    - 41.392
+  properties:
+    name: "Slow Spa"
+    category: wellness
+    tags:
+    - organic
+    - relax
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.166
+    - 41.3855
+  properties:
+    name: "Flax & Kale"
+    category: wellness
+    tags:
+    - healthy_food
+    - flexitarian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.164
+    - 41.393
+  properties:
+    name: "YogaOne"
+    category: wellness
+    tags:
+    - yoga
+    - classes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.153
+    - 41.3655
+  properties:
+    name: "Piscines Bernat Picornell"
+    category: wellness
+    tags:
+    - pool
+    - olympic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.603
+    - 42.368
+  properties:
+    name: "Banys de Sant Vicenç"
+    category: wellness
+    tags:
+    - thermal
+    - pyrenees
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1665
+    - 41.6335
+  properties:
+    name: "Balneari Broquetas"
+    category: wellness
+    tags:
+    - thermal
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.435
+    - 41.52
+  properties:
+    name: "Silence Spa"
+    category: wellness
+    tags:
+    - caldea
+    - thermal
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.295
+    - 41.53
+  properties:
+    name: "Vallromanes Golf and Spa"
+    category: wellness
+    tags:
+    - golf
+    - spa
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.125
+    - 41.954
+  properties:
+    name: "Mas de Torrent"
+    category: wellness
+    tags:
+    - luxury
+    - retreat
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1642
+    - 41.3868
+  properties:
+    name: "University of Barcelona (Historic)"
+    category: education
+    tags:
+    - university
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1706
+    - 41.3813
+  properties:
+    name: "Biblioteca de Catalunya"
+    category: education
+    tags:
+    - library
+    - books
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1317
+    - 41.4132
+  properties:
+    name: "CosmoCaixa"
+    category: education
+    tags:
+    - science
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.2205
+    - 41.4116
+  properties:
+    name: "Museu Blau"
+    category: education
+    tags:
+    - science
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.0125
+    - 41.5694
+  properties:
+    name: "Museu de la Ciència (Terrassa)"
+    category: education
+    tags:
+    - industry
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1865
+    - 41.3808
+  properties:
+    name: "Museu d'Història de Catalunya"
+    category: education
+    tags:
+    - history
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1575
+    - 41.3705
+  properties:
+    name: "Museu d'Arqueologia de Catalunya"
+    category: education
+    tags:
+    - archaeology
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1885
+    - 41.4025
+  properties:
+    name: "Museu del Disseny"
+    category: education
+    tags:
+    - design
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1665
+    - 41.383
+  properties:
+    name: "CCCB"
+    category: education
+    tags:
+    - culture
+    - contemporary
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1669
+    - 41.3832
+  properties:
+    name: "MACBA"
+    category: education
+    tags:
+    - art
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1635
+    - 41.3915
+  properties:
+    name: "Fundació Tàpies"
+    category: education
+    tags:
+    - art
+    - library
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1815
+    - 41.3875
+  properties:
+    name: "Museu de la Xocolata"
+    category: education
+    tags:
+    - chocolate
+    - workshop
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1665
+    - 41.3915
+  properties:
+    name: "Museu Egipci"
+    category: education
+    tags:
+    - egypt
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1985
+    - 41.418
+  properties:
+    name: "Biblioteca Gabriel García Márquez"
+    category: education
+    tags:
+    - library
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.108
+    - 41.503
+  properties:
+    name: "UAB Campus"
+    category: education
+    tags:
+    - university
+    - campus
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.186
+    - 41.388
+  properties:
+    name: "Pompeu Fabra Campus"
+    category: education
+    tags:
+    - university
+    - campus
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.256
+    - 41.9295
+  properties:
+    name: "Museu Episcopal de Vic"
+    category: education
+    tags:
+    - art
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.8235
+    - 41.983
+  properties:
+    name: "Museu del Cinema (Girona)"
+    category: education
+    tags:
+    - film
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.961
+    - 42.2665
+  properties:
+    name: "Museu del Joguet (Figueres)"
+    category: education
+    tags:
+    - toys
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.109
+    - 42.628
+  properties:
+    name: "Ecomuseu de les Valls d'Àneu"
+    category: education
+    tags:
+    - ethnography
+    - pyrenees
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1616
+    - 41.4193
+  properties:
+    name: "Bunker del Carmel"
+    category: hidden_gems
+    tags:
+    - view
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.136
+    - 41.4114
+  properties:
+    name: "Jardins de la Tamarita"
+    category: hidden_gems
+    tags:
+    - garden
+    - quiet
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1458
+    - 41.4391
+  properties:
+    name: "Parc del Laberint d'Horta"
+    category: hidden_gems
+    tags:
+    - garden
+    - maze
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1554
+    - 41.8606
+  properties:
+    name: "Cala S'Alguer"
+    category: hidden_gems
+    tags:
+    - fishing_village
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.3853
+    - 41.5372
+  properties:
+    name: "Castell de Burriac"
+    category: hidden_gems
+    tags:
+    - ruins
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1654
+    - 42.3235
+  properties:
+    name: "Monestir de Sant Pere de Rodes"
+    category: hidden_gems
+    tags:
+    - monastery
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1678
+    - 41.3653
+  properties:
+    name: "Cactus Garden (Montjuïc)"
+    category: hidden_gems
+    tags:
+    - plants
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1675
+    - 41.3705
+  properties:
+    name: "Refugi 307"
+    category: hidden_gems
+    tags:
+    - shelter
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.175
+    - 41.383
+  properties:
+    name: "Plaça de Sant Felip Neri"
+    category: hidden_gems
+    tags:
+    - square
+    - quiet
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1585
+    - 41.3685
+  properties:
+    name: "Jardins de Laribal"
+    category: hidden_gems
+    tags:
+    - garden
+    - fountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.176
+    - 41.384
+  properties:
+    name: "Claustre de la Catedral"
+    category: hidden_gems
+    tags:
+    - geese
+    - peaceful
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1765
+    - 41.3835
+  properties:
+    name: "Carrer del Bisbe"
+    category: hidden_gems
+    tags:
+    - bridge
+    - gothic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.161
+    - 41.396
+  properties:
+    name: "Palau Baró de Quadras"
+    category: hidden_gems
+    tags:
+    - modernisme
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1505
+    - 41.4035
+  properties:
+    name: "Casa Vicens"
+    category: hidden_gems
+    tags:
+    - gaudi
+    - first
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.127
+    - 41.4095
+  properties:
+    name: "Torre Bellesguard"
+    category: hidden_gems
+    tags:
+    - gaudi
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1565
+    - 41.4025
+  properties:
+    name: "Plaça del Diamant"
+    category: hidden_gems
+    tags:
+    - gracia
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.117
+    - 41.388
+  properties:
+    name: "Jardins de Pedralbes"
+    category: hidden_gems
+    tags:
+    - garden
+    - palace
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.105
+    - 41.384
+  properties:
+    name: "Parc de Cervantes"
+    category: hidden_gems
+    tags:
+    - roses
+    - park
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.168
+    - 41.368
+  properties:
+    name: "Mirador de l'Alcalde"
+    category: hidden_gems
+    tags:
+    - view
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.247
+    - 41.433
+  properties:
+    name: "Pont del Petroli"
+    category: hidden_gems
+    tags:
+    - bridge
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1194
+    - 41.4223
+  properties:
+    name: "Tibidabo Amusement Park"
+    category: family
+    tags:
+    - fun
+    - view
+    - vintage
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1895
+    - 41.386
+  properties:
+    name: "Barcelona Zoo"
+    category: family
+    tags:
+    - animals
+    - park
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1843
+    - 41.377
+  properties:
+    name: "L'Aquàrium"
+    category: family
+    tags:
+    - fish
+    - sea
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.1574
+    - 41.0878
+  properties:
+    name: "PortAventura World"
+    category: family
+    tags:
+    - theme_park
+    - rollercoasters
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.9961
+    - 41.3608
+  properties:
+    name: "Catalunya en Miniatura"
+    category: family
+    tags:
+    - miniature
+    - park
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1122
+    - 41.4017
+  properties:
+    name: "Parc de l'Oreneta"
+    category: family
+    tags:
+    - train
+    - forest
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.7303
+    - 41.6732
+  properties:
+    name: "Marineland Catalunya"
+    category: family
+    tags:
+    - waterpark
+    - dolphins
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.22
+    - 41.411
+  properties:
+    name: "Bosc Urbà"
+    category: family
+    tags:
+    - adventure
+    - climbing
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.378
+    - 41.594
+  properties:
+    name: "Granja d'Aventura Park"
+    category: family
+    tags:
+    - farm
+    - animals
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.04
+    - 41.08
+  properties:
+    name: "Jumpland Aventura"
+    category: family
+    tags:
+    - zipline
+    - adventure
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.155
+    - 41.086
+  properties:
+    name: "Ferrari Land"
+    category: family
+    tags:
+    - ferrari
+    - speed
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.152
+    - 41.088
+  properties:
+    name: "Caribe Aquatic Park"
+    category: family
+    tags:
+    - waterpark
+    - portaventura
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.825
+    - 41.706
+  properties:
+    name: "Water World"
+    category: family
+    tags:
+    - waterpark
+    - slides
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.358
+    - 41.505
+  properties:
+    name: "Illa Fantasia"
+    category: family
+    tags:
+    - waterpark
+    - family
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.026
+    - 41.104
+  properties:
+    name: "Parc Samà"
+    category: family
+    tags:
+    - botanic
+    - animals
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1
+    - 42.253
+  properties:
+    name: "Butterfly Park"
+    category: family
+    tags:
+    - butterflies
+    - tropical
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.14
+    - 42.27
+  properties:
+    name: "Aquabrava"
+    category: family
+    tags:
+    - waterpark
+    - roses
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.82
+    - 41.69
+  properties:
+    name: "Gnomo Park"
+    category: family
+    tags:
+    - kids
+    - fun
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.065
+    - 41.815
+  properties:
+    name: "Pp's Park"
+    category: family
+    tags:
+    - rides
+    - platjadaro
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.48
+    - 41.25
+  properties:
+    name: "Aqualeon"
+    category: family
+    tags:
+    - safari
+    - waterpark
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.899
+    - 41.742
+  properties:
+    name: "Món Sant Benet"
+    category: family
+    tags:
+    - monastery
+    - workshops
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.5
+    - 41.615
+  properties:
+    name: "Rukimon"
+    category: family
+    tags:
+    - donkeys
+    - nature
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.1
+    - 41.29
+  properties:
+    name: "Fundació CRAM"
+    category: family
+    tags:
+    - turtles
+    - rescue
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.73
+    - 41.22
+  properties:
+    name: "Museu del Ferrocarril"
+    category: family
+    tags:
+    - trains
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.15
+    - 42.4
+  properties:
+    name: "Vall de Núria (Family)"
+    category: family
+    tags:
+    - snow
+    - train
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.19
+    - 41.43
+  properties:
+    name: "Parc de la Pegaso"
+    category: family
+    tags:
+    - octopus
+    - park
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.44
+  properties:
+    name: "Parc Central de Nou Barris"
+    category: family
+    tags:
+    - park
+    - fountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.57
+    - 41.19
+  properties:
+    name: "Tobogan de Calafell"
+    category: family
+    tags:
+    - slide
+    - fun
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.36
+    - 41.64
+  properties:
+    name: "Karting Cardedeu"
+    category: family
+    tags:
+    - karting
+    - racing
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.2
+    - 41.42
+  properties:
+    name: "Indoor Jumping Club"
+    category: family
+    tags:
+    - trampoline
+    - jump
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.818
+    - 41.693
+  properties:
+    name: "Cala Sa Boadella"
+    category: nature
+    tags:
+    - beach
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.833
+    - 41.695
+  properties:
+    name: "Platja de Fenals"
+    category: nature
+    tags:
+    - beach
+    - popular
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.88
+    - 41.705
+  properties:
+    name: "Cala Canyelles"
+    category: nature
+    tags:
+    - beach
+    - port
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.956
+    - 41.74
+  properties:
+    name: "Cala Futadera"
+    category: nature
+    tags:
+    - beach
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.95
+    - 41.738
+  properties:
+    name: "Cala Bona"
+    category: nature
+    tags:
+    - beach
+    - snorkeling
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.934
+    - 41.718
+  properties:
+    name: "Platja Gran de Tossa"
+    category: nature
+    tags:
+    - beach
+    - castle_view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.183
+    - 41.888
+  properties:
+    name: "Platja del Canadell"
+    category: nature
+    tags:
+    - beach
+    - promenade
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.195
+    - 41.893
+  properties:
+    name: "Platja de Llafranc"
+    category: nature
+    tags:
+    - beach
+    - family
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.208
+    - 41.918
+  properties:
+    name: "Platja de Tamariu"
+    category: nature
+    tags:
+    - beach
+    - diving
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.213
+    - 41.923
+  properties:
+    name: "Cala d'Aigua Xelida"
+    category: nature
+    tags:
+    - beach
+    - secluded
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.206
+    - 41.983
+  properties:
+    name: "Platja del Racó"
+    category: nature
+    tags:
+    - beach
+    - begur
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.205
+    - 41.98
+  properties:
+    name: "Illa Roja"
+    category: nature
+    tags:
+    - beach
+    - nudist
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.208
+    - 41.973
+  properties:
+    name: "Sa Riera"
+    category: nature
+    tags:
+    - beach
+    - fishing_village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.168
+    - 42.11
+  properties:
+    name: "Cala Montgó"
+    category: nature
+    tags:
+    - beach
+    - cliffs
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.143
+    - 42.118
+  properties:
+    name: "Platja de Riells"
+    category: nature
+    tags:
+    - beach
+    - shallow
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.103
+    - 42.195
+  properties:
+    name: "Platja de Sant Pere Pescador"
+    category: nature
+    tags:
+    - beach
+    - windsurf
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.145
+    - 42.245
+  properties:
+    name: "Platja de la Rubina"
+    category: nature
+    tags:
+    - beach
+    - dog_friendly
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.243
+    - 42.26
+  properties:
+    name: "Cala Joncols"
+    category: nature
+    tags:
+    - beach
+    - remote
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.226
+    - 42.25
+  properties:
+    name: "Cala Montjoi"
+    category: nature
+    tags:
+    - beach
+    - elbulli
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.723
+    - 41.213
+  properties:
+    name: "Platja de Ribes Roges"
+    category: nature
+    tags:
+    - beach
+    - vilanova
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.633
+    - 41.192
+  properties:
+    name: "Platja de Cunit"
+    category: nature
+    tags:
+    - beach
+    - family
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.533
+    - 41.183
+  properties:
+    name: "Platja de Coma-ruga"
+    category: nature
+    tags:
+    - beach
+    - thermal
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.545
+    - 41.185
+  properties:
+    name: "Platja de Sant Salvador"
+    category: nature
+    tags:
+    - beach
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.403
+    - 41.143
+  properties:
+    name: "Platja de la Paella"
+    category: nature
+    tags:
+    - beach
+    - port
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.378
+    - 41.135
+  properties:
+    name: "Platja d'Altafulla"
+    category: nature
+    tags:
+    - beach
+    - village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.298
+    - 41.128
+  properties:
+    name: "Platja Llarga (Tarragona)"
+    category: nature
+    tags:
+    - beach
+    - forest
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.315
+    - 41.128
+  properties:
+    name: "Cala Fonda (Waikiki)"
+    category: nature
+    tags:
+    - beach
+    - wild
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.258
+    - 41.113
+  properties:
+    name: "Platja del Miracle"
+    category: nature
+    tags:
+    - beach
+    - urban
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.178
+    - 41.095
+  properties:
+    name: "Platja de la Pineda"
+    category: nature
+    tags:
+    - beach
+    - family
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.163
+    - 41.058
+  properties:
+    name: "Cala Crancs"
+    category: nature
+    tags:
+    - beach
+    - cove
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.143
+    - 41.075
+  properties:
+    name: "Platja de Llevant"
+    category: nature
+    tags:
+    - beach
+    - busy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.063
+    - 41.065
+  properties:
+    name: "Platja del Regueral"
+    category: nature
+    tags:
+    - beach
+    - cambrils
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.803
+    - 40.883
+  properties:
+    name: "Platja de l'Alguer"
+    category: nature
+    tags:
+    - beach
+    - fishing
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.813
+    - 40.898
+  properties:
+    name: "Cala Forn"
+    category: nature
+    tags:
+    - beach
+    - crystal_clear
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.146
+    - 41.971
+  properties:
+    name: "Pals Old Town"
+    category: culture
+    tags:
+    - medieval
+    - cobblestone
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.091
+    - 41.977
+  properties:
+    name: "Peratallada"
+    category: culture
+    tags:
+    - medieval
+    - stone
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.996
+    - 41.99
+  properties:
+    name: "Monells"
+    category: culture
+    tags:
+    - medieval
+    - square
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.958
+    - 41.993
+  properties:
+    name: "Madremanya"
+    category: culture
+    tags:
+    - village
+    - stone
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.018
+    - 41.986
+  properties:
+    name: "Corçà"
+    category: culture
+    tags:
+    - village
+    - rural
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.055
+    - 41.961
+  properties:
+    name: "Vulpellac"
+    category: culture
+    tags:
+    - castle
+    - village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.068
+    - 42
+  properties:
+    name: "Ullastret"
+    category: culture
+    tags:
+    - iberian
+    - ruins
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.109
+    - 41.988
+  properties:
+    name: "Palau-sator"
+    category: culture
+    tags:
+    - tower
+    - village
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.466
+    - 42.025
+  properties:
+    name: "Rupit"
+    category: culture
+    tags:
+    - suspension_bridge
+    - stone
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.455
+    - 42.036
+  properties:
+    name: "Pruit"
+    category: culture
+    tags:
+    - rural
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.418
+    - 41.996
+  properties:
+    name: "Tavertet"
+    category: culture
+    tags:
+    - cliffs
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.406
+    - 42.041
+  properties:
+    name: "Cantonigròs"
+    category: culture
+    tags:
+    - nature
+    - waterfall
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.571
+    - 42.146
+  properties:
+    name: "Santa Pau"
+    category: culture
+    tags:
+    - medieval
+    - volcanoes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.549
+    - 42.219
+  properties:
+    name: "Castellfollit de la Roca"
+    category: culture
+    tags:
+    - cliffs
+    - basalt
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.483
+    - 42.318
+  properties:
+    name: "Beget"
+    category: culture
+    tags:
+    - remote
+    - romanesque
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.366
+    - 42.313
+  properties:
+    name: "Camprodon"
+    category: culture
+    tags:
+    - bridge
+    - mountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.301
+    - 42.375
+  properties:
+    name: "Setcases"
+    category: culture
+    tags:
+    - stone
+    - ski
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.406
+    - 42.348
+  properties:
+    name: "Molló"
+    category: culture
+    tags:
+    - border
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.163
+    - 42.349
+  properties:
+    name: "Queralbs"
+    category: culture
+    tags:
+    - stone
+    - railway
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.168
+    - 42.305
+  properties:
+    name: "Ribes de Freser"
+    category: culture
+    tags:
+    - valley
+    - rivers
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.66
+    - 42.236
+  properties:
+    name: "Gósol"
+    category: culture
+    tags:
+    - picasso
+    - mountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.861
+    - 42.251
+  properties:
+    name: "Bagà"
+    category: culture
+    tags:
+    - medieval
+    - square
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.015
+    - 42.281
+  properties:
+    name: "Castellar de n'Hug"
+    category: culture
+    tags:
+    - lobregat
+    - stone
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.023
+    - 42.188
+  properties:
+    name: "Sant Jaume de Frontanyà"
+    category: culture
+    tags:
+    - tiny
+    - church
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.162
+    - 41.376
+  properties:
+    name: "Montblanc Walls"
+    category: culture
+    tags:
+    - walls
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.931
+    - 41.259
+  properties:
+    name: "Siurana"
+    category: culture
+    tags:
+    - cliffs
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.988
+    - 41.309
+  properties:
+    name: "Prades"
+    category: culture
+    tags:
+    - red_town
+    - square
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.026
+    - 41.295
+  properties:
+    name: "Capafonts"
+    category: culture
+    tags:
+    - mountains
+    - rural
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.316
+    - 40.956
+  properties:
+    name: "Horta de Sant Joan"
+    category: culture
+    tags:
+    - picasso
+    - els_ports
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.598
+    - 41.043
+  properties:
+    name: "Miravet Castle"
+    category: culture
+    tags:
+    - river
+    - templar
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.261
+    - 40.91
+  properties:
+    name: "Arnes"
+    category: culture
+    tags:
+    - stone
+    - rural
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.31
+    - 41.093
+  properties:
+    name: "Batea"
+    category: culture
+    tags:
+    - wine
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.185
+    - 41.565
+  properties:
+    name: "Guimerà"
+    category: culture
+    tags:
+    - hilltop
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.088
+    - 41.525
+  properties:
+    name: "Vallbona de les Monges"
+    category: culture
+    tags:
+    - monastery
+    - cistercian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.143
+    - 41.61
+  properties:
+    name: "Verdú"
+    category: culture
+    tags:
+    - ceramics
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.966
+    - 41.716
+  properties:
+    name: "Penelles Murals"
+    category: culture
+    tags:
+    - art
+    - graffiti
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.763
+    - 42
+  properties:
+    name: "Àger"
+    category: culture
+    tags:
+    - stars
+    - paragliding
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.616
+    - 41.578
+  properties:
+    name: "Igualada Leather Museum"
+    category: culture
+    tags:
+    - industry
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.698
+    - 41.346
+  properties:
+    name: "Vilafranca Vinseum"
+    category: culture
+    tags:
+    - wine
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.786
+    - 41.423
+  properties:
+    name: "Sant Sadurní Cava Centre"
+    category: culture
+    tags:
+    - cava
+    - experience
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.25
+    - 41.285
+  properties:
+    name: "Valls Castells"
+    category: culture
+    tags:
+    - tradition
+    - towers
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.578
+    - 40.713
+  properties:
+    name: "Amposta Bridge"
+    category: culture
+    tags:
+    - ebre
+    - bridge
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.523
+    - 40.814
+  properties:
+    name: "Castell de la Suda (Tortosa)"
+    category: culture
+    tags:
+    - castle
+    - parador
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.522
+    - 40.812
+  properties:
+    name: "Tortosa Cathedral"
+    category: culture
+    tags:
+    - gothic
+    - river
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.438
+    - 41.053
+  properties:
+    name: "Gandesa Cooperative"
+    category: culture
+    tags:
+    - modernisme
+    - wine
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.64
+    - 41.091
+  properties:
+    name: "Mora d'Ebre Castle"
+    category: culture
+    tags:
+    - river
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.82
+    - 41.146
+  properties:
+    name: "Falset Castle"
+    category: culture
+    tags:
+    - wine
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.663
+    - 41.361
+  properties:
+    name: "Bodegas Torres"
+    category: gastronomy
+    tags:
+    - wine
+    - tour
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.796
+    - 41.428
+  properties:
+    name: "Cavas Codorníu"
+    category: gastronomy
+    tags:
+    - cava
+    - architecture
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.791
+    - 41.422
+  properties:
+    name: "Cavas Freixenet"
+    category: gastronomy
+    tags:
+    - cava
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.785
+    - 41.423
+  properties:
+    name: "Recaredo"
+    category: gastronomy
+    tags:
+    - cava
+    - biodynamic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.788
+    - 41.424
+  properties:
+    name: "Gramona"
+    category: gastronomy
+    tags:
+    - cava
+    - premium
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.693
+    - 41.398
+  properties:
+    name: "Jean Leon"
+    category: gastronomy
+    tags:
+    - wine
+    - pioneer
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.666
+    - 41.366
+  properties:
+    name: "Parés Baltà"
+    category: gastronomy
+    tags:
+    - wine
+    - organic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.81
+    - 41.256
+  properties:
+    name: "Scala Dei Cartoixa"
+    category: gastronomy
+    tags:
+    - wine
+    - priorat
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.85
+    - 41.233
+  properties:
+    name: "Mas Doix"
+    category: gastronomy
+    tags:
+    - wine
+    - exclusive
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.776
+    - 41.211
+  properties:
+    name: "Clos Mogador"
+    category: gastronomy
+    tags:
+    - wine
+    - legend
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.778
+    - 41.213
+  properties:
+    name: "Alvaro Palacios"
+    category: gastronomy
+    tags:
+    - wine
+    - famous
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.011
+    - 42.306
+  properties:
+    name: "Castell de Peralada Winery"
+    category: gastronomy
+    tags:
+    - wine
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 3.1
+    - 42.326
+  properties:
+    name: "Celler Espelt"
+    category: gastronomy
+    tags:
+    - wine
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.966
+    - 42.361
+  properties:
+    name: "La Vinyeta"
+    category: gastronomy
+    tags:
+    - wine
+    - experience
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.438
+    - 41.773
+  properties:
+    name: "Turó de l'Home"
+    category: nature
+    tags:
+    - peak
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.381
+    - 41.805
+  properties:
+    name: "Matagalls"
+    category: nature
+    tags:
+    - peak
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.463
+    - 41.776
+  properties:
+    name: "Pantà de Santa Fe"
+    category: nature
+    tags:
+    - lake
+    - forest
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.246
+    - 41.708
+  properties:
+    name: "Santuari de Puiggracios"
+    category: nature
+    tags:
+    - view
+    - sanctuary
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.233
+    - 41.716
+  properties:
+    name: "Cingles de Bertí"
+    category: nature
+    tags:
+    - cliffs
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.19
+    - 41.715
+  properties:
+    name: "Sant Miquel del Fai"
+    category: nature
+    tags:
+    - monastery
+    - waterfall
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.016
+    - 41.641
+  properties:
+    name: "Mola de Sant Llorenç"
+    category: nature
+    tags:
+    - mountain
+    - landmark
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.993
+    - 41.661
+  properties:
+    name: "Montcau"
+    category: nature
+    tags:
+    - mountain
+    - rocky
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.83
+    - 42.106
+  properties:
+    name: "Santuari de Queralt"
+    category: nature
+    tags:
+    - balcony
+    - berga
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.763
+    - 42.138
+  properties:
+    name: "Rasos de Peguera"
+    category: nature
+    tags:
+    - snow
+    - nature
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.563
+    - 42.173
+  properties:
+    name: "Port del Comte"
+    category: nature
+    tags:
+    - ski
+    - mountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.396
+    - 42.671
+  properties:
+    name: "Pica d'Estats"
+    category: nature
+    tags:
+    - highest
+    - peak
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.945
+    - 42.571
+  properties:
+    name: "Estany Llong"
+    category: nature
+    tags:
+    - lake
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.946
+    - 42.553
+  properties:
+    name: "Aigüestortes Planell"
+    category: nature
+    tags:
+    - wetlands
+    - accessible
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.776
+    - 40.661
+  properties:
+    name: "MónNatura Delta"
+    category: nature
+    tags:
+    - salt
+    - birds
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.776
+    - 40.783
+  properties:
+    name: "Punta del Fangar"
+    category: nature
+    tags:
+    - lighthouse
+    - dunes
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.28
+    - 42.546
+  properties:
+    name: "Bosc de Virós"
+    category: nature
+    tags:
+    - forest
+    - iron
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.826
+    - 41.986
+  properties:
+    name: "Museu d'Història dels Jueus"
+    category: education
+    tags:
+    - history
+    - girona
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.824
+    - 41.985
+  properties:
+    name: "Casa Masó"
+    category: culture
+    tags:
+    - architecture
+    - girona
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.258
+    - 41.117
+  properties:
+    name: "Museu Nacional Arqueològic Tarragona"
+    category: education
+    tags:
+    - roman
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.257
+    - 41.116
+  properties:
+    name: "Pretori Romà"
+    category: culture
+    tags:
+    - tower
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.256
+    - 41.116
+  properties:
+    name: "Museu d'Art Modern Tarragona"
+    category: education
+    tags:
+    - art
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.108
+    - 41.155
+  properties:
+    name: "Gaudí Centre Reus"
+    category: education
+    tags:
+    - gaudi
+    - interactive
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.096
+    - 41.168
+  properties:
+    name: "Institut Pere Mata"
+    category: culture
+    tags:
+    - modernisme
+    - hospital
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.108
+    - 41.155
+  properties:
+    name: "Casa Navàs"
+    category: culture
+    tags:
+    - modernisme
+    - jewel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.623
+    - 41.616
+  properties:
+    name: "Museu de Lleida"
+    category: education
+    tags:
+    - history
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 0.613
+    - 41.611
+  properties:
+    name: "Castell Templer de Gardeny"
+    category: culture
+    tags:
+    - templar
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.831
+    - 41.731
+  properties:
+    name: "Museu de la Tècnica Manresa"
+    category: education
+    tags:
+    - technology
+    - water
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.826
+    - 41.723
+  properties:
+    name: "La Seu Manresa"
+    category: culture
+    tags:
+    - gothic
+    - basilica
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.831
+    - 41.722
+  properties:
+    name: "Cova de Sant Ignasi"
+    category: culture
+    tags:
+    - religious
+    - pilgrimage
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.012
+    - 41.569
+  properties:
+    name: "mNACTEC"
+    category: education
+    tags:
+    - science
+    - industry
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.008
+    - 41.563
+  properties:
+    name: "Masia Freixa"
+    category: culture
+    tags:
+    - modernisme
+    - arch
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.016
+    - 41.566
+  properties:
+    name: "Seu d'Ègara"
+    category: culture
+    tags:
+    - visigoth
+    - unique
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.115
+    - 41.551
+  properties:
+    name: "Torre de l'Aigua Sabadell"
+    category: culture
+    tags:
+    - tower
+    - modernisme
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.153
+    - 41.4
+  properties:
+    name: "Mercat de la Llibertat"
+    category: shopping
+    tags:
+    - market
+    - gracia
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.158
+    - 41.401
+  properties:
+    name: "Mercat de l'Abaceria"
+    category: shopping
+    tags:
+    - market
+    - traditional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.143
+    - 41.396
+  properties:
+    name: "Mercat de Galvany"
+    category: shopping
+    tags:
+    - market
+    - fancy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.153
+    - 41.388
+  properties:
+    name: "Mercat del Ninot"
+    category: shopping
+    tags:
+    - market
+    - foodie
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.173
+    - 41.37
+  properties:
+    name: "Jardins de Mossèn Costa i Llobera"
+    category: nature
+    tags:
+    - cactus
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.188
+    - 41.373
+  properties:
+    name: "Telefèric del Port"
+    category: family
+    tags:
+    - cablecar
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.181
+    - 41.375
+  properties:
+    name: "Las Golondrinas"
+    category: family
+    tags:
+    - boat
+    - tour
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.176
+    - 41.377
+  properties:
+    name: "Museu de Cera"
+    category: family
+    tags:
+    - wax
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.179
+    - 41.379
+  properties:
+    name: "Basílica de la Mercè"
+    category: culture
+    tags:
+    - church
+    - patron
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.175
+    - 41.38
+  properties:
+    name: "Plaça Reial"
+    category: culture
+    tags:
+    - square
+    - fountain
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.177
+    - 41.384
+  properties:
+    name: "Plaça del Rei"
+    category: culture
+    tags:
+    - history
+    - medieval
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.177
+    - 41.382
+  properties:
+    name: "Plaça Sant Jaume"
+    category: culture
+    tags:
+    - government
+    - square
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.175
+    - 41.382
+  properties:
+    name: "Sinagoga Major"
+    category: culture
+    tags:
+    - jewish
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.177
+    - 41.383
+  properties:
+    name: "Temple d'August"
+    category: culture
+    tags:
+    - roman
+    - columns
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.175
+    - 41.384
+  properties:
+    name: "Casa de l'Ardiaca"
+    category: culture
+    tags:
+    - history
+    - mailbox
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.387
+  properties:
+    name: "Plaça de Catalunya"
+    category: culture
+    tags:
+    - center
+    - meeting
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.385
+  properties:
+    name: "Font de Canaletes"
+    category: culture
+    tags:
+    - fountain
+    - barca
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.173
+    - 41.38
+  properties:
+    name: "Teatre Liceu"
+    category: culture
+    tags:
+    - opera
+    - theatre
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.171
+    - 41.384
+  properties:
+    name: "Teatre Poliorama"
+    category: culture
+    tags:
+    - theatre
+    - ramblas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.171
+    - 41.389
+  properties:
+    name: "Teatre Tívoli"
+    category: culture
+    tags:
+    - theatre
+    - historic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.161
+    - 41.396
+  properties:
+    name: "Palau Robert"
+    category: culture
+    tags:
+    - exhibitions
+    - garden
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.159
+    - 41.398
+  properties:
+    name: "Casa Fuster"
+    category: culture
+    tags:
+    - modernisme
+    - hotel
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.161
+    - 41.397
+  properties:
+    name: "Casa Comalat"
+    category: culture
+    tags:
+    - modernisme
+    - hidden
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.166
+    - 41.399
+  properties:
+    name: "Casa les Punxes"
+    category: culture
+    tags:
+    - modernisme
+    - castle
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.401
+  properties:
+    name: "Palau Macaya"
+    category: culture
+    tags:
+    - modernisme
+    - white
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.165
+    - 41.391
+  properties:
+    name: "Casa Amatller"
+    category: culture
+    tags:
+    - modernisme
+    - chocolate
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.166
+    - 41.391
+  properties:
+    name: "Casa Lleó Morera"
+    category: culture
+    tags:
+    - modernisme
+    - flowers
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.175
+    - 41.412
+  properties:
+    name: "Antiga Fàbrica Estrella Damm"
+    category: culture
+    tags:
+    - beer
+    - events
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.461
+    - 42.358
+  properties:
+    name: "La Seu d'Urgell Cathedral"
+    category: culture
+    tags:
+    - romanesque
+    - bishop
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.456
+    - 42.355
+  properties:
+    name: "Parc del Segre"
+    category: family
+    tags:
+    - kayak
+    - olympic
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.978
+    - 42.463
+  properties:
+    name: "Llívia Pharmacy"
+    category: culture
+    tags:
+    - oldest
+    - pharmacy
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.926
+    - 42.435
+  properties:
+    name: "Puigcerdà Lake"
+    category: nature
+    tags:
+    - lake
+    - promenade
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.776
+    - 42.37
+  properties:
+    name: "Bellver de Cerdanya"
+    category: culture
+    tags:
+    - walls
+    - history
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.518
+    - 41.993
+  properties:
+    name: "Solsona Cathedral"
+    category: culture
+    tags:
+    - gothic
+    - virgin
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.673
+    - 41.903
+  properties:
+    name: "Cardona Salt Mountain"
+    category: nature
+    tags:
+    - salt
+    - mine
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.591
+    - 42.136
+  properties:
+    name: "Sant Llorenç de Morunys"
+    category: culture
+    tags:
+    - church
+    - altarpiece
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.646
+    - 41.606
+  properties:
+    name: "Far de Calella"
+    category: culture
+    tags:
+    - lighthouse
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.576
+    - 41.598
+  properties:
+    name: "Castell de Santa Florentina"
+    category: culture
+    tags:
+    - castle
+    - got
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.556
+    - 41.578
+  properties:
+    name: "Arenys de Mar Port"
+    category: gastronomy
+    tags:
+    - fish
+    - auction
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.528
+    - 41.571
+  properties:
+    name: "Caldes d'Estrac Thermal"
+    category: wellness
+    tags:
+    - thermal
+    - baths
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.246
+    - 41.451
+  properties:
+    name: "Badalona Museum"
+    category: education
+    tags:
+    - roman
+    - baetulo
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.151
+    - 41.407
+  properties:
+    name: "Biblioteca Jaume Fuster"
+    category: education
+    tags:
+    - library
+    - modern
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.176
+    - 41.405
+  properties:
+    name: "Biblioteca Sagrada Família"
+    category: education
+    tags:
+    - library
+    - gaudi_view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.156
+    - 41.381
+  properties:
+    name: "Centre Cívic Casa Golferichs"
+    category: culture
+    tags:
+    - modernisme
+    - events
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.171
+    - 41.384
+  properties:
+    name: "Ateneu Barcelonès"
+    category: culture
+    tags:
+    - library
+    - garden
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.17
+    - 41.378
+  properties:
+    name: "Filmoteca de Catalunya"
+    category: culture
+    tags:
+    - cinema
+    - archive
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.085
+    - 41.472
+  properties:
+    name: "Sant Cugat Monastery"
+    category: culture
+    tags:
+    - cloister
+    - romanesque
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.113
+    - 41.417
+  properties:
+    name: "Collserola Tower"
+    category: culture
+    tags:
+    - view
+    - telecom
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.098
+    - 41.412
+  properties:
+    name: "Pantà de Vallvidrera"
+    category: nature
+    tags:
+    - lake
+    - walk
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 2.056
+    - 41.416
+  properties:
+    name: "Santa Creu d'Olorda"
+    category: nature
+    tags:
+    - hermitage
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.996
+    - 41.408
+  properties:
+    name: "Castell de Pallejà"
+    category: culture
+    tags:
+    - castle
+    - library
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.936
+    - 41.476
+  properties:
+    name: "Pont del Diable (Martorell)"
+    category: culture
+    tags:
+    - bridge
+    - roman
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.841
+    - 41.591
+  properties:
+    name: "Montserrat Santa Cova"
+    category: culture
+    tags:
+    - chapel
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.811
+    - 41.601
+  properties:
+    name: "Montserrat Sant Jeroni"
+    category: nature
+    tags:
+    - peak
+    - hike
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.83
+    - 41.573
+  properties:
+    name: "Coves del Salnitre"
+    category: nature
+    tags:
+    - caves
+    - collbato
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.698
+    - 41.611
+  properties:
+    name: "Castell de Claramunt"
+    category: culture
+    tags:
+    - castle
+    - view
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.685
+    - 41.53
+  properties:
+    name: "Molí Paperer de Capellades"
+    category: education
+    tags:
+    - paper
+    - museum
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.866
+    - 41.438
+  properties:
+    name: "Castell de Gelida"
+    category: culture
+    tags:
+    - castle
+    - funicular
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - 1.813
+    - 41.413
+  properties:
+    name: "Castell de Subirats"
+    category: culture
+    tags:
+    - castle
+    - views
