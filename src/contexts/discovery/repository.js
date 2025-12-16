@@ -16,7 +16,7 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
       createdAt: place.createdAt || now,
     };
 
-    const precision = 6;
+    const precision = 4;
     const geohash = encode(record.geometry.coordinates[1], record.geometry.coordinates[0], precision);
     record.geohash = geohash;
 
@@ -51,8 +51,8 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
   const findInBounds = async (bbox) => {
     const { minLat, minLon, maxLat, maxLon } = bbox;
 
-    // Always query at precision 6 as that is what we indexed
-    const precision = 6;
+    // Always query at precision 4 as that is what we indexed
+    const precision = 4;
     const hashes = getCoveringGeohashes(minLat, minLon, maxLat, maxLon, precision);
 
     if (hashes.length > 500) {
