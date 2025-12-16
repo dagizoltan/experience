@@ -9,6 +9,7 @@ import { createClock } from "../../core/ports/clock.js";
 import { createPlaceRepository } from "../../contexts/discovery/repository.js";
 import { createGetPlacesInBounds } from "../../contexts/discovery/usecases/getPlacesInBounds.js";
 import { createSearchPlaces } from "../../contexts/discovery/usecases/searchPlaces.js";
+import { createSeed } from "../../contexts/discovery/actions/seed.ts";
 import { MapPage } from "./views/MapPage.tsx";
 
 const app = new Hono();
@@ -23,6 +24,22 @@ container.register('clock', createClock, 'singleton');
 container.register('discovery.repository', createPlaceRepository, 'singleton');
 container.register('discovery.getPlacesInBounds', createGetPlacesInBounds, 'transient');
 container.register('discovery.searchPlaces', createSearchPlaces, 'transient');
+// Seed needs the repository instance directly if we are resolving it manually or use dependency injection properly.
+// The createSeed factory expects the repository.
+// Let's resolve the repository first.
+const repo = container.resolve('discovery.repository');
+container.register('discovery.seed', () => createSeed(repo), 'singleton');
+
+// Auto-seed on startup
+try {
+  const seed = container.resolve('discovery.seed');
+  // We don't await this to avoid blocking startup, but for Deno Deploy cold starts it might be better to await
+  // to ensure data is there for the first request.
+  // Given it's fast (~500 items), awaiting is safer.
+  await seed();
+} catch (err) {
+  console.error("Failed to seed on startup:", err);
+}
 
 app.get('/', async (c) => {
   const getPlaces = container.resolve('discovery.getPlacesInBounds');

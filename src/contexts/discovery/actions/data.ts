@@ -1,29 +1,4 @@
-import { createContainer } from "../src/core/container.js";
-import { createKv } from "../src/adapters/kv/index.js";
-import { createIds } from "../src/core/ports/ids.js";
-import { createClock } from "../src/core/ports/clock.js";
-import { createPlaceRepository } from "../src/contexts/discovery/repository.js";
-
-const run = async () => {
-  console.log("🌱 Seeding Catalonia Data (500 Places)...");
-
-  // 1. Setup DI
-  const container = createContainer();
-  const kv = await createKv();
-
-  container.register('kv', () => kv, 'singleton');
-  container.register('ids', createIds, 'singleton');
-  container.register('clock', createClock, 'singleton');
-  container.register('discovery.repository', createPlaceRepository, 'singleton');
-
-  const repo = container.resolve('discovery.repository');
-
-  // 2. Clear DB
-  console.log("🧹 Clearing database...");
-  await repo.removeAll();
-
-  // 3. Define Real Data (~500 Places)
-  const places = [
+export   const places = [
 
     // --- CULTURE (40) ---
     { "name": "Sagrada Família", "lat": 41.4036, "lon": 2.1744, "cat": "culture", "tags": ["gaudi", "church", "unesco"] },
@@ -503,29 +478,3 @@ const run = async () => {
     { name: "Castell de Gelida", lat: 41.438, lon: 1.866, cat: 'culture', tags: ["castle", "funicular"] },
     { name: "Castell de Subirats", lat: 41.413, lon: 1.813, cat: 'culture', tags: ["castle", "views"] },
   ];
-
-  // 4. Save to Repo
-  let count = 0;
-  for (const p of places) {
-    const placeEntity = {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [p.lon, p.lat]
-      },
-      properties: {
-        name: p.name,
-        category: p.cat,
-        tags: p.tags
-      }
-    };
-
-    await repo.save(placeEntity);
-    process.stdout.write('.');
-    count++;
-  }
-
-  console.log(`\n✅ Seeded ${count} real places!`);
-}
-
-run();
