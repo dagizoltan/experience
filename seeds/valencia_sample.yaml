@@ -1,0 +1,1176 @@
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3632878
+    - 39.4770984
+  properties:
+    name: "Foster's Hollywood"
+    category: gastronomy
+    tags:
+    - restaurant
+    - american
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3720946
+    - 39.4510699
+  properties:
+    name: "Nuevo Siglo"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3379912
+    - 39.4849007
+  properties:
+    name: "El Famós"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3830892
+    - 39.4753554
+  properties:
+    name: "Unsushi"
+    category: gastronomy
+    tags:
+    - restaurant
+    - sushi
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3830933
+    - 39.4758321
+  properties:
+    name: "Canela Arroces"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3808255
+    - 39.4742592
+  properties:
+    name: "Dhaba"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3984648
+    - 39.4852451
+  properties:
+    name: "Restaurante Chino Mei Hua II"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4430676
+    - 39.5308304
+  properties:
+    name: "Wok"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4262715
+    - 39.5020236
+  properties:
+    name: "Mesón Ferial"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4249333
+    - 39.5036825
+  properties:
+    name: "Duke"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3234952
+    - 39.4635462
+  properties:
+    name: "La Marcelina"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3749513
+    - 39.4748689
+  properties:
+    name: "Petit MontMartre"
+    category: gastronomy
+    tags:
+    - restaurant
+    - french
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3761283
+    - 39.4733028
+  properties:
+    name: "Sagardi Valencia - Cosineros Vascos"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional;spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3232178
+    - 39.5087902
+  properties:
+    name: "Che Boludo"
+    category: gastronomy
+    tags:
+    - restaurant
+    - argentinian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3886506
+    - 39.543043
+  properties:
+    name: "Sher Khan"
+    category: gastronomy
+    tags:
+    - restaurant
+    - indian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3235039
+    - 39.4636463
+  properties:
+    name: "Azahar"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3688996
+    - 39.4649003
+  properties:
+    name: "Casa Roberto"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional;spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3234726
+    - 39.4633974
+  properties:
+    name: "La Pepica"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.32351
+    - 39.4637145
+  properties:
+    name: "El Coso"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.323598
+    - 39.4642871
+  properties:
+    name: "Restaurante Miramar"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3235554
+    - 39.4639856
+  properties:
+    name: "Tres Cepas"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3235343
+    - 39.4638677
+  properties:
+    name: "L'Estimat"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3231189
+    - 39.463189
+  properties:
+    name: "Tridente"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3235828
+    - 39.4641847
+  properties:
+    name: "Las Carabelas"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3404649
+    - 39.4227706
+  properties:
+    name: "La Genuina"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3943088
+    - 39.4805806
+  properties:
+    name: "Bierwinkel"
+    category: gastronomy
+    tags:
+    - restaurant
+    - german
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3918549
+    - 39.4791634
+  properties:
+    name: "Chino Feliz"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3929191
+    - 39.4806349
+  properties:
+    name: "Restaurante Pío XII"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3919784
+    - 39.4792824
+  properties:
+    name: "Taberna Montero"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3940116
+    - 39.4786465
+  properties:
+    name: "Hui No Cuine"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3917966
+    - 39.4790676
+  properties:
+    name: "Restaurante Japonés Kyoto"
+    category: gastronomy
+    tags:
+    - restaurant
+    - sushi
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3967025
+    - 39.4804704
+  properties:
+    name: "Los Alpes"
+    category: gastronomy
+    tags:
+    - restaurant
+    - french
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3939098
+    - 39.481467
+  properties:
+    name: "El Tarantín Chiflado"
+    category: gastronomy
+    tags:
+    - restaurant
+    - burger;wings
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3939515
+    - 39.4807121
+  properties:
+    name: "Restaurante Estancia la Española"
+    category: gastronomy
+    tags:
+    - restaurant
+    - argentinian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3971542
+    - 39.4778644
+  properties:
+    name: "Restaurante D'Antonella"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4016925
+    - 39.4786511
+  properties:
+    name: "Restaurante DiBocca"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.440418
+    - 39.5295253
+  properties:
+    name: "Foster's Hollywood"
+    category: gastronomy
+    tags:
+    - restaurant
+    - american
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4414025
+    - 39.5302989
+  properties:
+    name: "100 Montaditos"
+    category: gastronomy
+    tags:
+    - restaurant
+    - sandwich
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4066778
+    - 39.5070422
+  properties:
+    name: "La Casa de Lito"
+    category: gastronomy
+    tags:
+    - restaurant
+    - argentinian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4413918
+    - 39.529593
+  properties:
+    name: "Sagardi"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4407309
+    - 39.5298035
+  properties:
+    name: "Rickel's"
+    category: gastronomy
+    tags:
+    - restaurant
+    - american;italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3431484
+    - 39.4709006
+  properties:
+    name: "Pollo Express"
+    category: gastronomy
+    tags:
+    - restaurant
+    - pizza;regional;chicken
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3421098
+    - 39.4615198
+  properties:
+    name: "Meson Rincon de Asturias"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3443278
+    - 39.4617007
+  properties:
+    name: "La Alqueria Arroces"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3458647
+    - 39.463436
+  properties:
+    name: "Cerveceria Restaurante Islas Canarias"
+    category: gastronomy
+    tags:
+    - restaurant
+    - seafood
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3472326
+    - 39.461475
+  properties:
+    name: "Comidas Caseras El Castillo de la Mota"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.343762
+    - 39.4625188
+  properties:
+    name: "Bar 130"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3445474
+    - 39.4633692
+  properties:
+    name: "Donner Kebab"
+    category: gastronomy
+    tags:
+    - restaurant
+    - kebab
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3432865
+    - 39.4624713
+  properties:
+    name: "Super kebab"
+    category: gastronomy
+    tags:
+    - restaurant
+    - kebab
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3324479
+    - 39.4686655
+  properties:
+    name: "Bodega bar Flor"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3974066
+    - 39.4091481
+  properties:
+    name: "Col·lecció Etnològica Joan Comes"
+    category: culture
+    tags:
+    - museum
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3752922
+    - 39.4887068
+  properties:
+    name: "Bar Mojacar"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4261023
+    - 39.4628922
+  properties:
+    name: "Bar L'Alqueria"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3656538
+    - 39.4558978
+  properties:
+    name: "Casa Jose - Bodega la Mancha"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3685293
+    - 39.4588739
+  properties:
+    name: "Aleimuna"
+    category: gastronomy
+    tags:
+    - restaurant
+    - moroccan
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3676955
+    - 39.4605178
+  properties:
+    name: "Laifu"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3845408
+    - 39.4596389
+  properties:
+    name: "Cruz Blanca"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3759486
+    - 39.4682437
+  properties:
+    name: "La Rollerie"
+    category: gastronomy
+    tags:
+    - restaurant
+    - french
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4221067
+    - 39.5185756
+  properties:
+    name: "Pizzeria"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3751977
+    - 39.4710078
+  properties:
+    name: "Puerta del Mar"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional;fish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3724329
+    - 39.4709824
+  properties:
+    name: "Garnacha Tinta"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3579554
+    - 39.4695109
+  properties:
+    name: "Samsha"
+    category: gastronomy
+    tags:
+    - restaurant
+    - international
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4492067
+    - 39.4583455
+  properties:
+    name: "Las Tres Torres"
+    category: gastronomy
+    tags:
+    - restaurant
+    - spanish
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3054655
+    - 39.5410458
+  properties:
+    name: "L'Horta Nord"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3777919
+    - 39.4674179
+  properties:
+    name: "PadThaiWok"
+    category: gastronomy
+    tags:
+    - restaurant
+    - thai
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3787044
+    - 39.4677772
+  properties:
+    name: "La tagliatella"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3845858
+    - 39.4704115
+  properties:
+    name: "Galan's Grill"
+    category: gastronomy
+    tags:
+    - restaurant
+    - barbecue
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3743263
+    - 39.456815
+  properties:
+    name: "Souca"
+    category: gastronomy
+    tags:
+    - restaurant
+    - pizza
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3676268
+    - 39.4724845
+  properties:
+    name: "Fuji"
+    category: gastronomy
+    tags:
+    - restaurant
+    - japanese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3485182
+    - 39.4736535
+  properties:
+    name: "Döner Kebab Sofra"
+    category: gastronomy
+    tags:
+    - restaurant
+    - kebab
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3495882
+    - 39.4702669
+  properties:
+    name: "Döner Kebab Amigo"
+    category: gastronomy
+    tags:
+    - restaurant
+    - kebab
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3756447
+    - 39.466283
+  properties:
+    name: "Museo Taurino"
+    category: culture
+    tags:
+    - museum
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.348701
+    - 39.4737399
+  properties:
+    name: "del poble"
+    category: gastronomy
+    tags:
+    - restaurant
+    - italian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3445119
+    - 39.4735655
+  properties:
+    name: "Pizzeria Doner Kebab Kilim"
+    category: gastronomy
+    tags:
+    - restaurant
+    - kebab;pizza
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3472264
+    - 39.4744631
+  properties:
+    name: "100 Montaditos"
+    category: gastronomy
+    tags:
+    - restaurant
+    - sandwich
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.33169
+    - 39.464243
+  properties:
+    name: "La Paca"
+    category: gastronomy
+    tags:
+    - restaurant
+    - tapas
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3829273
+    - 39.4685563
+  properties:
+    name: "The Nature"
+    category: gastronomy
+    tags:
+    - restaurant
+    - chinese
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3776139
+    - 39.4690794
+  properties:
+    name: "Natsu"
+    category: gastronomy
+    tags:
+    - restaurant
+    - asian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3782275
+    - 39.4767176
+  properties:
+    name: "Museo de los Soldaditos de Plomo L'Iber"
+    category: culture
+    tags:
+    - museum
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3601807
+    - 39.4678644
+  properties:
+    name: "Che Boludo"
+    category: gastronomy
+    tags:
+    - restaurant
+    - argentinian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3941011
+    - 39.5480378
+  properties:
+    name: "Museu de la Seda"
+    category: culture
+    tags:
+    - museum
+    - art
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3980575
+    - 39.4615609
+  properties:
+    name: "Los Cuatro Arcos"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3775997
+    - 39.4800865
+  properties:
+    name: "Blanqueries"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3559286
+    - 39.4687416
+  properties:
+    name: "Mesón de Escobar"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3874642
+    - 39.4612291
+  properties:
+    name: "La Casa del Tapeo"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3377336
+    - 39.4627882
+  properties:
+    name: "Mesón Las Espigas"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3254882
+    - 39.4669979
+  properties:
+    name: "La Pampa"
+    category: gastronomy
+    tags:
+    - restaurant
+    - argentinian
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3637464
+    - 39.4617987
+  properties:
+    name: "Velarte"
+    category: gastronomy
+    tags:
+    - restaurant
+    - paella;valencian;regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3768319
+    - 39.4795353
+  properties:
+    name: "Restaurante Serranos"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3526901
+    - 39.4771625
+  properties:
+    name: "Mesón El Rebeco"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3930023
+    - 39.464984
+  properties:
+    name: "La Andaluza"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4019813
+    - 39.4688456
+  properties:
+    name: "El Campeador"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3874797
+    - 39.4685971
+  properties:
+    name: "Villaplana"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3561972
+    - 39.4740403
+  properties:
+    name: "Aragon 58"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3887879
+    - 39.4925719
+  properties:
+    name: "L'Aldea"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.3530011
+    - 39.4749946
+  properties:
+    name: "El Nuevo Virrey"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.361852
+    - 39.4753949
+  properties:
+    name: "Mestalla"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
+- type: Feature
+  geometry:
+    type: Point
+    coordinates:
+    - -0.4147229
+    - 39.4658829
+  properties:
+    name: "Mesón La Tapa"
+    category: gastronomy
+    tags:
+    - restaurant
+    - regional
