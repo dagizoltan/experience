@@ -27,13 +27,13 @@ container.register('discovery.searchPlaces', createSearchPlaces, 'transient');
 app.get('/', async (c) => {
   const getPlaces = container.resolve('discovery.getPlacesInBounds');
 
-  // Focused View: Barcelona
+  // Focused View: Catalonia
   const view = {
-    lat: 41.3874,
-    lon: 2.1686,
-    zoom: 13,
-    minLat: 41.35, minLon: 2.10,
-    maxLat: 41.45, maxLon: 2.25
+    lat: 41.75,
+    lon: 1.75,
+    zoom: 8,
+    minLat: 40.5, minLon: 0.0,
+    maxLat: 43.0, maxLon: 3.5
   };
 
   const places = await getPlaces({
