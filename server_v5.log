@@ -1,0 +1,9 @@
+Task start deno run --allow-all --unstable-kv src/adapters/web/server.tsx
+🚀 Server running on http://localhost:8000
+Listening on http://0.0.0.0:8000/
+🔎 Querying Bounds: [41.35, 2.1] to [41.45, 2.25]
+📦 Covering Geohashes (p6): 266 boxes
+📍 Found 87 unique places
+🔎 Querying Bounds: [41.35, 2.1] to [41.45, 2.25]
+📦 Covering Geohashes (p6): 266 boxes
+📍 Found 87 unique places
