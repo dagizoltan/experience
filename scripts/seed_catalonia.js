@@ -505,27 +505,24 @@ const run = async () => {
   ];
 
   // 4. Save to Repo
-  let count = 0;
-  for (const p of places) {
-    const placeEntity = {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [p.lon, p.lat]
-      },
-      properties: {
-        name: p.name,
-        category: p.cat,
-        tags: p.tags
-      }
-    };
+  console.log("💾 Saving places using batching...");
 
-    await repo.save(placeEntity);
-    process.stdout.write('.');
-    count++;
-  }
+  const entities = places.map(p => ({
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [p.lon, p.lat]
+    },
+    properties: {
+      name: p.name,
+      category: p.cat,
+      tags: p.tags
+    }
+  }));
 
-  console.log(`\n✅ Seeded ${count} real places!`);
+  await repo.saveAll(entities);
+
+  console.log(`\n✅ Seeded ${entities.length} real places!`);
 }
 
 run();
