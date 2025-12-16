@@ -1,9 +1,0 @@
-Task start deno run --allow-all --unstable-kv src/adapters/web/server.tsx
-🚀 Server running on http://localhost:8000
-error: Uncaught (in promise) AddrInUse: Address already in use (os error 98)
-Deno.serve({ port: 8000 }, app.fetch);
-     ^
-    at listen (ext:deno_net/01_net.js:509:35)
-    at Object.serve (ext:deno_http/00_serve.ts:587:16)
-    at file:///app/src/adapters/web/server.tsx:76:6
-    at eventLoopTick (ext:core/01_core.js:178:7)
