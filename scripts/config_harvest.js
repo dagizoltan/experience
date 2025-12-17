@@ -60,6 +60,26 @@ export const COUNTRIES = {
     { name: "Vizcaya", areaId: 3600349028 },
     { name: "Zamora", areaId: 3600349025 },
     { name: "Zaragoza", areaId: 3600349026 }
+  ],
+  portugal: [
+    { name: "Aveiro", areaId: 3604272467 },
+    { name: "Beja", areaId: 3602074551 },
+    { name: "Braga", areaId: 3604156683 },
+    { name: "Braganca", areaId: 3604156684 },
+    { name: "Castelo_Branco", areaId: 3602897108 },
+    { name: "Coimbra", areaId: 3602914757 },
+    { name: "Evora", areaId: 3602074557 },
+    { name: "Faro", areaId: 3602074558 },
+    { name: "Guarda", areaId: 3602897105 },
+    { name: "Leiria", areaId: 3602897102 },
+    { name: "Lisboa", areaId: 3602897100 },
+    { name: "Portalegre", areaId: 3602897107 },
+    { name: "Porto", areaId: 3604272466 },
+    { name: "Santarem", areaId: 3602897106 },
+    { name: "Setubal", areaId: 3602074552 },
+    { name: "Viana_do_Castelo", areaId: 3604156681 },
+    { name: "Vila_Real", areaId: 3604156685 },
+    { name: "Viseu", areaId: 3602897103 }
   ]
 };
 

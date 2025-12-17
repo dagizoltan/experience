@@ -109,6 +109,7 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           let visiblePlaces = [];
           let selectedPlace = null;
           let isSidebarOpen = true;
+          let debounceTimer = null;
 
           // DOM Elements
           const sidebar = document.getElementById('sidebar');
@@ -208,23 +209,6 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
               }
             });
 
-            // Labels for points (optional, maybe clutter)
-            /*
-            map.addLayer({
-              'id': 'places-label',
-              'type': 'symbol',
-              'source': 'places',
-              'filter': ['==', '$type', 'Point'],
-              'layout': {
-                'text-field': ['get', 'name'],
-                'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-                'text-radial-offset': 0.5,
-                'text-justify': 'auto',
-                'text-size': 10
-              }
-            });
-            */
-
             // Initial calculation
             updateVisiblePlaces();
           });
@@ -253,9 +237,35 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           map.on('mouseenter', layers, () => map.getCanvas().style.cursor = 'pointer');
           map.on('mouseleave', layers, () => map.getCanvas().style.cursor = '');
 
-          map.on('moveend', updateVisiblePlaces);
+          map.on('moveend', () => {
+             // Debounce network requests
+             if (debounceTimer) clearTimeout(debounceTimer);
+             debounceTimer = setTimeout(() => {
+                fetchPlaces();
+             }, 300);
+          });
 
           // --- Logic ---
+          async function fetchPlaces() {
+             const bounds = map.getBounds();
+             const query = \`minLat=\${bounds.getSouth()}&minLon=\${bounds.getWest()}&maxLat=\${bounds.getNorth()}&maxLon=\${bounds.getEast()}\`;
+
+             try {
+                const res = await fetch(\`/api/places?\${query}\`);
+                if (res.ok) {
+                   const data = await res.json();
+                   // Update Map Source
+                   if (map.getSource('places')) {
+                       map.getSource('places').setData(data);
+                   }
+                   // Update UI
+                   updateVisiblePlaces();
+                }
+             } catch (e) {
+                console.error("Failed to fetch places", e);
+             }
+          }
+
           function updateVisiblePlaces() {
              // For client-side large datasets, querying rendered features is efficient
              const features = map.queryRenderedFeatures({ layers: layers });
