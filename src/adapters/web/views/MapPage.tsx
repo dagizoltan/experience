@@ -1,5 +1,3 @@
-
-// src/adapters/web/views/MapPage.tsx
 /** @jsxImportSource preact */
 import { h } from 'preact';
 
@@ -7,461 +5,449 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
   const jsonState = JSON.stringify({ places: initialPlaces, view: initialView, mapApiKey });
 
   return (
-    <html>
+    <html lang="en">
       <head>
-        <title>Map Discovery</title>
+        <title>Jules Discovery - Explore Places</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="Discover amazing places near you" />
+
+        {/* Preconnect to external resources */}
+        <link rel="preconnect" href="https://unpkg.com" />
+        <link rel="preconnect" href="https://api.maptiler.com" />
+
+        {/* Stylesheets */}
         <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
         <style dangerouslySetInnerHTML={{ __html: `
-          body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; overflow: hidden; }
+          /* CSS Variables for theming */
+          :root {
+            --color-primary: #007bff;
+            --color-danger: #dc3545;
+            --color-success: #28a745;
+            --color-text: #333;
+            --color-text-muted: #777;
+            --color-border: #ddd;
+            --color-bg: #fff;
+            --color-bg-hover: #f5f5f5;
+            --sidebar-width: 350px;
+            --header-height: 60px;
+            --transition-speed: 0.3s;
+          }
+
+          * {
+            box-sizing: border-box;
+          }
+
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
 
           /* Layout */
-          #app-container { position: relative; width: 100vw; height: 100vh; }
-          #map { width: 100%; height: 100%; }
+          #app-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+          }
+
+          #map {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+          }
+
+          /* Loading Indicator */
+          #loading-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 15;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 8px;
+          }
+
+          .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--color-border);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+          }
+
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+
+          /* Error Toast */
+          .error-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--color-danger);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: all var(--transition-speed) ease;
+            max-width: 90%;
+          }
+
+          .error-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+          }
 
           /* Sidebar */
           .sidebar {
-            position: absolute; top: 0; left: 0; bottom: 0;
-            width: 350px;
-            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: var(--sidebar-width);
+            background: var(--color-bg);
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             z-index: 20;
             transform: translateX(0);
-            transition: transform 0.3s ease;
-            display: flex; flex-direction: column;
+            transition: transform var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
           }
-          .sidebar.closed { transform: translateX(-100%); }
+
+          .sidebar.closed {
+            transform: translateX(-100%);
+          }
 
           .sidebar-header {
             padding: 16px;
-            border-bottom: 1px solid #eee;
-            display: flex; gap: 10px; align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            gap: 10px;
+            align-items: center;
             background: #f9f9f9;
+            min-height: var(--header-height);
           }
 
-          .search-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
-          .toggle-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; color: #555; }
+          .search-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+          }
 
-          .sidebar-content { flex: 1; overflow-y: auto; padding: 16px; }
+          .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+          }
+
+          .search-input:disabled {
+            background: #f5f5f5;
+            cursor: not-allowed;
+          }
+
+          .toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #555;
+            padding: 8px;
+            transition: color 0.2s;
+          }
+
+          .toggle-btn:hover {
+            color: var(--color-primary);
+          }
+
+          .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+          }
+
+          /* Custom scrollbar */
+          .sidebar-content::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          .sidebar-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+
+          .sidebar-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+          }
+
+          .sidebar-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
+
+          #list-view, #detail-view {
+            padding: 16px;
+          }
 
           /* List Items */
           .place-item {
-            padding: 12px; border-bottom: 1px solid #f0f0f0; cursor: pointer;
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
             transition: background 0.2s;
           }
-          .place-item:hover { background: #f5f5f5; }
-          .place-item h3 { margin: 0 0 5px 0; font-size: 1rem; color: #333; }
-          .place-item .meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: #777; }
-          .category-tag { text-transform: capitalize; font-weight: bold; }
+
+          .place-item:hover {
+            background: var(--color-bg-hover);
+          }
+
+          .place-item:last-child {
+            border-bottom: none;
+          }
+
+          .place-item h3 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: var(--color-text);
+            font-weight: 600;
+          }
+
+          .place-item .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+          }
+
+          .category-tag {
+            text-transform: capitalize;
+            font-weight: 600;
+          }
 
           /* Detail View */
-          .detail-view h2 { margin-top: 0; }
-          .back-btn { margin-bottom: 16px; background: none; border: none; color: #007bff; cursor: pointer; padding: 0; font-size: 0.9rem; }
-          .back-btn:hover { text-decoration: underline; }
-          .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-          .tag { background: #eee; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; }
-
-          /* Open Button */
-          .open-sidebar-btn {
-            position: absolute; top: 20px; left: 20px;
-            z-index: 10;
-            background: white; padding: 10px 15px;
-            border-radius: 4px; border: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            cursor: pointer; font-weight: bold;
-            display: none;
+          #detail-view h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
           }
-          .open-sidebar-btn.visible { display: block; }
+
+          .back-btn {
+            margin-bottom: 16px;
+            background: none;
+            border: none;
+            color: var(--color-primary);
+            cursor: pointer;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s;
+          }
+
+          .back-btn:hover {
+            opacity: 0.8;
+          }
+
+          .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+          }
+
+          .tag {
+            background: #eee;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #555;
+          }
+
+          #detail-view ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+          }
+
+          #detail-view li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+          }
+
+          #detail-view li:last-child {
+            border-bottom: none;
+          }
+
+          #detail-view a {
+            color: var(--color-primary);
+            text-decoration: none;
+          }
+
+          #detail-view a:hover {
+            text-decoration: underline;
+          }
+
+          /* Open Sidebar Button */
+          .open-sidebar-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 4px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            font-weight: 600;
+            display: none;
+            transition: background 0.2s;
+          }
+
+          .open-sidebar-btn.visible {
+            display: block;
+          }
+
+          .open-sidebar-btn:hover {
+            background: var(--color-bg-hover);
+          }
+
+          /* Mobile Responsiveness */
+          @media (max-width: 768px) {
+            :root {
+              --sidebar-width: 100vw;
+            }
+
+            .sidebar {
+              width: 100vw;
+              max-width: 400px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .sidebar {
+              max-width: none;
+            }
+
+            .search-input {
+              font-size: 16px; /* Prevents zoom on iOS */
+            }
+          }
+
+          /* Print styles */
+          @media print {
+            .sidebar,
+            .open-sidebar-btn,
+            #loading-indicator,
+            .maplibregl-ctrl {
+              display: none !important;
+            }
+
+            #map {
+              width: 100%;
+              height: 100vh;
+            }
+          }
+
+          /* Accessibility */
+          .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+          }
+
+          /* Focus styles for keyboard navigation */
+          *:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+          }
         `}} />
       </head>
       <body>
         <div id="app-container">
-          <div id="sidebar" class="sidebar">
+          {/* Sidebar */}
+          <aside id="sidebar" class="sidebar" role="complementary" aria-label="Places list">
             <div class="sidebar-header">
-              <input id="search-input" class="search-input" type="text" placeholder="Search experiences..." />
-              <button id="close-sidebar-btn" class="toggle-btn" title="Close Sidebar"><i class="fa-solid fa-chevron-left"></i></button>
+              <input
+                id="search-input"
+                class="search-input"
+                type="search"
+                placeholder="Search experiences... (Press / to focus)"
+                aria-label="Search places"
+                autocomplete="off"
+              />
+              <button
+                id="close-sidebar-btn"
+                class="toggle-btn"
+                title="Close Sidebar"
+                aria-label="Close sidebar"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
             </div>
             <div id="sidebar-content" class="sidebar-content">
-              <div id="list-view">
-                <p class="text-muted">Loading...</p>
+              <div id="list-view" role="list">
+                <p style="padding:10px; color:#888;">Loading places...</p>
               </div>
-              <div id="detail-view" style="display:none;"></div>
+              <div id="detail-view" style="display:none;" role="article"></div>
             </div>
+          </aside>
+
+          {/* Open Sidebar Button */}
+          <button
+            id="open-sidebar-btn"
+            class="open-sidebar-btn"
+            aria-label="Open sidebar"
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i> Menu
+          </button>
+
+          {/* Loading Indicator */}
+          <div id="loading-indicator" aria-live="polite" aria-atomic="true">
+            <div class="spinner" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <span>Loading places...</span>
           </div>
 
-          <button id="open-sidebar-btn" class="open-sidebar-btn">Menu</button>
-
-          <div id="map"></div>
+          {/* Map */}
+          <main id="map" role="main" aria-label="Interactive map"></main>
         </div>
 
+        {/* Initial State */}
         <script dangerouslySetInnerHTML={{ __html: `
           window.__INITIAL_STATE__ = ${jsonState};
         `}} />
 
+        {/* External Scripts */}
         <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
         <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
-        <script dangerouslySetInnerHTML={{ __html: `
-          const { places: initialPlacesData, view, mapApiKey } = window.__INITIAL_STATE__;
 
-          // State
-          let visiblePlaces = [];
-          let selectedPlace = null;
-          let isSidebarOpen = true;
-          let debounceTimer = null;
-
-          // Client-side store to avoid duplicates and support incremental loading
-          // Key: Feature ID, Value: Feature
-          const featureStore = new Map();
-
-          // Initialize store with initial data
-          if (initialPlacesData.features) {
-             initialPlacesData.features.forEach(f => featureStore.set(f.id, f));
-          }
-
-          // DOM Elements
-          const sidebar = document.getElementById('sidebar');
-          const openBtn = document.getElementById('open-sidebar-btn');
-          const listView = document.getElementById('list-view');
-          const detailView = document.getElementById('detail-view');
-          const searchInput = document.getElementById('search-input');
-
-          // --- Colors ---
-          const CATEGORY_COLORS = {
-               gastronomy: '#e74c3c',
-               culture: '#3498db',
-               nature: '#2ecc71',
-               nightlife: '#9b59b6',
-               shopping: '#f39c12',
-               wellness: '#1abc9c',
-               education: '#8e44ad',
-               hidden_gems: '#7f8c8d',
-               family: '#e91e63',
-               sports: '#d35400',
-               default: '#333'
-          };
-          const getCategoryColor = (cat) => CATEGORY_COLORS[cat] || CATEGORY_COLORS.default;
-
-          // --- Map Initialization ---
-          const map = new maplibregl.Map({
-            container: 'map',
-            style: \`https://api.maptiler.com/maps/streets-v2/style.json?key=\${mapApiKey}\`,
-            center: [view.lon, view.lat],
-            zoom: view.zoom
-          });
-
-          // --- Layers Setup ---
-          map.on('load', () => {
-            // Add Source with Clustering
-            map.addSource('places', {
-              type: 'geojson',
-              data: { type: 'FeatureCollection', features: Array.from(featureStore.values()) },
-              cluster: true,
-              clusterMaxZoom: 14, // Max zoom to cluster points on
-              clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-            });
-
-            // 1. Polygons (Fill) - Not Clustered (Clustering only works for Points)
-            map.addLayer({
-              'id': 'places-fill',
-              'type': 'fill',
-              'source': 'places',
-              'filter': ['==', '$type', 'Polygon'],
-              'paint': {
-                'fill-color': ['match', ['get', 'category'],
-                  'nature', '#2ecc71',
-                  'culture', '#3498db',
-                  'sports', '#d35400',
-                  '#888'
-                ],
-                'fill-opacity': 0.4
-              }
-            });
-
-            // 2. Lines (LineString) - Not Clustered
-            map.addLayer({
-              'id': 'places-line',
-              'type': 'line',
-              'source': 'places',
-              'filter': ['==', '$type', 'LineString'],
-              'paint': {
-                'line-color': ['match', ['get', 'category'],
-                  'nature', '#2ecc71',
-                  '#888'
-                ],
-                'line-width': 3
-              }
-            });
-
-            // --- Cluster Layers ---
-
-            // 3. Cluster Circles
-            map.addLayer({
-              id: 'clusters',
-              type: 'circle',
-              source: 'places',
-              filter: ['has', 'point_count'],
-              paint: {
-                // Use step expressions (https://maplibre.org/maplibre-style-spec/#expressions-step)
-                'circle-color': [
-                    'step',
-                    ['get', 'point_count'],
-                    '#51bbd6',
-                    20,
-                    '#f1f075',
-                    50,
-                    '#f28cb1'
-                ],
-                'circle-radius': [
-                    'step',
-                    ['get', 'point_count'],
-                    20,
-                    20,
-                    30,
-                    50,
-                    40
-                ]
-              }
-            });
-
-            // 4. Cluster Count Labels
-            map.addLayer({
-              id: 'cluster-count',
-              type: 'symbol',
-              source: 'places',
-              filter: ['has', 'point_count'],
-              layout: {
-                'text-field': '{point_count_abbreviated}',
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 12
-              }
-            });
-
-            // 5. Unclustered Points (Circle)
-            map.addLayer({
-              'id': 'unclustered-point',
-              'type': 'circle',
-              'source': 'places',
-              'filter': ['!', ['has', 'point_count']],
-              'paint': {
-                'circle-radius': 6,
-                'circle-color': ['match', ['get', 'category'],
-                   'gastronomy', CATEGORY_COLORS.gastronomy,
-                   'culture', CATEGORY_COLORS.culture,
-                   'nature', CATEGORY_COLORS.nature,
-                   'nightlife', CATEGORY_COLORS.nightlife,
-                   'shopping', CATEGORY_COLORS.shopping,
-                   'wellness', CATEGORY_COLORS.wellness,
-                   'education', CATEGORY_COLORS.education,
-                   'hidden_gems', CATEGORY_COLORS.hidden_gems,
-                   'family', CATEGORY_COLORS.family,
-                   'sports', CATEGORY_COLORS.sports,
-                   CATEGORY_COLORS.default
-                ],
-                'circle-stroke-width': 1,
-                'circle-stroke-color': '#fff'
-              }
-            });
-
-            // Initial Fetch
-            fetchPlaces();
-          });
-
-          // --- Interaction ---
-
-          // Click on Cluster: Zoom in
-          map.on('click', 'clusters', async (e) => {
-             const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
-             const clusterId = features[0].properties.cluster_id;
-             const source = map.getSource('places');
-
-             source.getClusterExpansionZoom(clusterId, (err, zoom) => {
-                 if (err) return;
-                 map.easeTo({
-                     center: features[0].geometry.coordinates,
-                     zoom: zoom
-                 });
-             });
-          });
-
-          // Click on Point/Poly/Line
-          const itemLayers = ['places-fill', 'places-line', 'unclustered-point'];
-          map.on('click', itemLayers, (e) => {
-             const feature = e.features[0];
-             const place = {
-               geometry: feature.geometry,
-               properties: feature.properties
-             };
-
-             if (typeof place.properties.tags === 'string') {
-                try { place.properties.tags = JSON.parse(place.properties.tags); } catch(e){}
-             }
-             if (!Array.isArray(place.properties.tags)) place.properties.tags = [];
-
-             selectPlace(place);
-          });
-
-          map.on('mouseenter', ['clusters', ...itemLayers], () => map.getCanvas().style.cursor = 'pointer');
-          map.on('mouseleave', ['clusters', ...itemLayers], () => map.getCanvas().style.cursor = '');
-
-          map.on('moveend', () => {
-             // Debounce network requests
-             if (debounceTimer) clearTimeout(debounceTimer);
-             debounceTimer = setTimeout(() => {
-                fetchPlaces();
-             }, 300);
-          });
-
-          // --- Logic ---
-          async function fetchPlaces() {
-             const bounds = map.getBounds();
-             const query = \`minLat=\${bounds.getSouth()}&minLon=\${bounds.getWest()}&maxLat=\${bounds.getNorth()}&maxLon=\${bounds.getEast()}\`;
-
-             try {
-                const res = await fetch(\`/api/places?\${query}\`);
-                if (res.ok) {
-                   const data = await res.json();
-
-                   // Incremental Update: Merge new features into store
-                   if (data.features) {
-                       let newCount = 0;
-                       data.features.forEach(f => {
-                           if (!featureStore.has(f.id)) {
-                               featureStore.set(f.id, f);
-                               newCount++;
-                           }
-                       });
-
-                       // Only update source if we have new data to avoid re-clustering calculation overhead
-                       if (newCount > 0) {
-                           map.getSource('places').setData({
-                               type: 'FeatureCollection',
-                               features: Array.from(featureStore.values())
-                           });
-                       }
-                       // Still update UI list based on current view
-                       updateVisiblePlaces();
-                   }
-                }
-             } catch (e) {
-                console.error("Failed to fetch places", e);
-             }
-          }
-
-          function updateVisiblePlaces() {
-             // For client-side large datasets, querying rendered features is efficient
-             const features = map.queryRenderedFeatures({ layers: itemLayers });
-
-             // Deduplicate by ID
-             const seen = new Set();
-             visiblePlaces = [];
-
-             for (const f of features) {
-               const id = f.properties.osm_id || f.properties.name;
-               if (!seen.has(id)) {
-                 seen.add(id);
-                 // Normalize
-                 let tags = f.properties.tags;
-                 if (typeof tags === 'string') {
-                     try { tags = JSON.parse(tags); } catch(e){ tags = []; }
-                 }
-
-                 visiblePlaces.push({
-                   ...f,
-                   properties: { ...f.properties, tags }
-                 });
-               }
-             }
-
-             // Cap list size for performance
-             if (visiblePlaces.length > 100) visiblePlaces.length = 100;
-
-             if (!selectedPlace) {
-                renderList();
-             }
-          }
-
-          function selectPlace(place) {
-             selectedPlace = place;
-             renderDetail(place);
-             if (!isSidebarOpen) toggleSidebar();
-
-             // Fly to centroid
-             const center = turf.center(place).geometry.coordinates;
-
-             map.flyTo({
-                center: center,
-                zoom: Math.max(map.getZoom(), 14),
-                essential: true
-             });
-          }
-
-          function renderList() {
-            detailView.style.display = 'none';
-            listView.style.display = 'block';
-
-            if (visiblePlaces.length === 0) {
-              listView.innerHTML = '<p style="padding:10px; color:#888;">No places visible. Zoom in or pan.</p>';
-              return;
-            }
-
-            listView.innerHTML = visiblePlaces.map(p => \`
-              <div class="place-item" onclick="selectPlaceByName('\${p.properties.name.replace(/'/g, "\\\\'")}')">
-                 <h3>\${p.properties.name}</h3>
-                 <div class="meta">
-                    <span class="category-tag" style="color:\${getCategoryColor(p.properties.category)}">\${(p.properties.category||'').replace('_', ' ')}</span>
-                 </div>
-              </div>
-            \`).join('');
-          }
-
-          window.selectPlaceByName = (name) => {
-             const p = visiblePlaces.find(x => x.properties.name === name);
-             if (p) selectPlace(p);
-          };
-
-          function renderDetail(place) {
-             listView.style.display = 'none';
-             detailView.style.display = 'block';
-
-             const tagsHtml = (place.properties.tags || []).map(t => \`<span class="tag">#\${t}</span>\`).join('');
-
-             detailView.innerHTML = \`
-               <button id="back-to-list" class="back-btn">&larr; Back to list</button>
-               <h2 style="color:\${getCategoryColor(place.properties.category)}">\${place.properties.name}</h2>
-               <p><strong>Category:</strong> \${(place.properties.category||'').replace('_', ' ')}</p>
-               <div class="tags">\${tagsHtml}</div>
-               <div style="margin-top:20px; padding:15px; background:#f0f0f0; border-radius:8px;">
-                  <p style="margin:0; font-style:italic;">
-                    \${place.geometry.type} Geometry <br/>
-                    OSM ID: \${place.properties.osm_id || 'N/A'}
-                  </p>
-               </div>
-             \`;
-
-             document.getElementById('back-to-list').onclick = () => {
-                selectedPlace = null;
-                renderList();
-             };
-          }
-
-          function toggleSidebar() {
-             isSidebarOpen = !isSidebarOpen;
-             if (isSidebarOpen) {
-                sidebar.classList.remove('closed');
-                openBtn.classList.remove('visible');
-             } else {
-                sidebar.classList.add('closed');
-                openBtn.classList.add('visible');
-             }
-             map.resize();
-          }
-
-          document.getElementById('close-sidebar-btn').onclick = toggleSidebar;
-          document.getElementById('open-sidebar-btn').onclick = toggleSidebar;
-
-        `}} />
+        {/* Main Application Script */}
+        <script src="/static/map-client.js"></script>
       </body>
     </html>
   );

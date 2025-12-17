@@ -1,4 +1,3 @@
-
 // scripts/harvest_overpass.js
 import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
 import { ensureDir } from "https://deno.land/std@0.224.0/fs/mod.ts";
@@ -10,47 +9,63 @@ const OVERPASS_API = "https://overpass-api.de/api/interpreter";
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-async function fetchOverpass(query, retries = 3) {
+// Retry logic with exponential backoff
+const retryWithBackoff = async (fn, retries = 3, delay = 1000) => {
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      const backoff = delay * Math.pow(2, i);
+      console.log(`  ⚠️ Request failed. Retry ${i + 1}/${retries} after ${backoff}ms`);
+      await sleep(backoff);
+    }
+  }
+};
+
+// Checkpoint helpers
+const CHECKPOINT_FILE = './harvest-checkpoint.json';
+
+const saveCheckpoint = async (state) => {
+  await Deno.writeTextFile(
+    CHECKPOINT_FILE,
+    JSON.stringify(state, null, 2)
+  );
+};
+
+const loadCheckpoint = async () => {
+  try {
+    const data = await Deno.readTextFile(CHECKPOINT_FILE);
+    return JSON.parse(data);
+  } catch {
+    return null;
+  }
+};
+
+async function fetchOverpass(query) {
   // Increased timeout to 180s (3 mins) to avoid 504 on large provinces
   const body = `[out:json][timeout:180];${query}`;
   console.log("  Asking Overpass...");
 
-  try {
-    const res = await fetch(OVERPASS_API, {
-      method: "POST",
-      body,
-      headers: { "User-Agent": USER_AGENT }
-    });
+  const res = await fetch(OVERPASS_API, {
+    method: "POST",
+    body,
+    headers: { "User-Agent": USER_AGENT }
+  });
 
-    if (!res.ok) {
-      if (res.status === 429) {
-        console.log("  ⚠️ Rate limited (429). Waiting 60s...");
-        await sleep(60000);
-        return fetchOverpass(query, retries);
-      }
-      if (res.status === 504) {
-        if (retries > 0) {
-           console.log(`  ⚠️ Gateway Timeout (504). Retrying in 60s... (${retries} left)`);
-           await sleep(60000);
-           return fetchOverpass(query, retries - 1);
-        } else {
-           console.error("  ❌ Gateway Timeout (504). No retries left.");
-           return null;
-        }
-      }
-      throw new Error(`Overpass Error: ${res.status} ${res.statusText}`);
+  if (!res.ok) {
+    if (res.status === 429) {
+      console.log("  ⚠️ Rate limited (429). Waiting 60s...");
+      await sleep(60000);
+      throw new Error("Rate limited");
     }
-
-    return await res.json();
-  } catch (err) {
-    console.error("  ❌ Request failed:", err.message);
-    if (retries > 0) {
-       console.log(`  Retrying network error in 30s... (${retries} left)`);
-       await sleep(30000);
-       return fetchOverpass(query, retries - 1);
+    if (res.status === 504) {
+      throw new Error(`Gateway Timeout (504)`);
     }
-    return null;
+    throw new Error(`Overpass Error: ${res.status} ${res.statusText}`);
   }
+
+  return await res.json();
 }
 
 // Convert Overpass Element to GeoJSON Point
@@ -98,24 +113,37 @@ async function run() {
   const outDir = join(Deno.cwd(), "seeds/europe");
   await ensureDir(outDir);
 
-  for (const [country, regions] of Object.entries(COUNTRIES)) {
+  // Load checkpoint
+  let checkpoint = await loadCheckpoint();
+  if (!checkpoint) {
+    checkpoint = {
+      countryIndex: 0,
+      regionIndex: 0,
+      categoryIndex: 0
+    };
+  } else {
+    console.log("  🔄 Resuming from checkpoint:", checkpoint);
+  }
+
+  const countries = Object.entries(COUNTRIES);
+
+  for (let i = checkpoint.countryIndex; i < countries.length; i++) {
+    const [country, regions] = countries[i];
     console.log(`\n🌍 Country: ${country.toUpperCase()}`);
 
-    // For verification, we can limit loop here if needed, but committing full loop for user.
-    for (const region of regions) {
+    for (let j = (i === checkpoint.countryIndex ? checkpoint.regionIndex : 0); j < regions.length; j++) {
+      const region = regions[j];
       console.log(`\n📍 Region: ${region.name} (${region.areaId})`);
 
-      for (const [catKey, catConfig] of Object.entries(CATEGORIES)) {
+      const categories = Object.entries(CATEGORIES);
+      for (let k = (i === checkpoint.countryIndex && j === checkpoint.regionIndex ? checkpoint.categoryIndex : 0); k < categories.length; k++) {
+        const [catKey, catConfig] = categories[k];
         console.log(`  👉 Category: ${catKey}`);
 
         const filename = `${catKey}-${country}-${region.name.toLowerCase().replace(/_/g, '-')}.yaml`;
         const filepath = join(outDir, filename);
 
-        // Optional: Skip if already exists to resume?
-        // const exists = await Deno.stat(filepath).then(() => true).catch(() => false);
-        // if (exists) { console.log("    Skipping (already exists)"); continue; }
-
-        // Construct Query:
+        // Construct Query
         const lines = catConfig.query.split(';').map(l => l.trim()).filter(l => l);
         let parts;
 
@@ -130,30 +158,50 @@ async function run() {
           out center;
         `;
 
-        const data = await fetchOverpass(fullQuery);
+        try {
+          const data = await retryWithBackoff(() => fetchOverpass(fullQuery), 3, 5000);
 
-        if (!data || !data.elements || data.elements.length === 0) {
-          console.log("  ⚠️ No results.");
-          await sleep(2000);
-          continue;
+          if (!data || !data.elements || data.elements.length === 0) {
+            console.log("  ⚠️ No results.");
+          } else {
+            console.log(`  ✅ Got ${data.elements.length} raw elements.`);
+
+            const features = data.elements
+              .map(e => toGeoJSON(e, catKey, catConfig.tags))
+              .filter(f => f !== null);
+
+            console.log(`  💾 Saving ${features.length} points to ${filename}...`);
+
+            const yamlContent = stringify(features);
+            await Deno.writeTextFile(filepath, yamlContent);
+          }
+
+          // Update checkpoint
+          await saveCheckpoint({
+            countryIndex: i,
+            regionIndex: j,
+            categoryIndex: k + 1
+          });
+
+          // Increased sleep to 5s to play nice
+          await sleep(5000);
+        } catch (err) {
+          console.error(`  ❌ Failed to process ${catKey} for ${region.name}:`, err);
+          // Optional: decide whether to abort or skip
         }
+      }
 
-        console.log(`  ✅ Got ${data.elements.length} raw elements.`);
-
-        const features = data.elements
-          .map(e => toGeoJSON(e, catKey, catConfig.tags))
-          .filter(f => f !== null);
-
-        console.log(`  💾 Saving ${features.length} points to ${filename}...`);
-
-        const yamlContent = stringify(features);
-        await Deno.writeTextFile(filepath, yamlContent);
-
-        // Increased sleep to 5s to play nice
-        await sleep(5000);
+      // Reset category index for next region
+      if (i === checkpoint.countryIndex && j === checkpoint.regionIndex) {
+          checkpoint.categoryIndex = 0;
       }
     }
   }
+
+  // Clear checkpoint on success
+  try {
+    await Deno.remove(CHECKPOINT_FILE);
+  } catch {}
 
   console.log("\n✨ Harvest Complete!");
 }
