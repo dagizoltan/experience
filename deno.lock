@@ -1,6 +1,8 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@turf/center@*": "7.3.1",
+    "npm:@turf/helpers@*": "7.3.1",
     "npm:hono@3.12.0": "3.12.0",
     "npm:ngeohash@*": "0.6.3",
     "npm:osmtogeojson@*": "3.0.0-beta.5",
@@ -17,6 +19,38 @@
         "minimist"
       ],
       "bin": true
+    },
+    "@turf/bbox@7.3.1": {
+      "integrity": "sha512-/IyMKoS7P9B0ch5PIlQ6gMfoE8gRr48+cSbzlyexvEjuDuaAV1VURjH1jAthS0ipFG8RrFxFJKnp7TLL1Skong==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/center@7.3.1": {
+      "integrity": "sha512-czqNKLGGdik3phYsWCK5SHKBRkDulUArMlG4v62IQcNcRFq9MbOGqyN21GSshSMO792ynDeWzdXdcKmycQ14Yg==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/helpers@7.3.1": {
+      "integrity": "sha512-zkL34JVhi5XhsuMEO0MUTIIFEJ8yiW1InMu4hu/oRqamlY4mMoZql0viEmH6Dafh/p+zOl8OYvMJ3Vm3rFshgg==",
+      "dependencies": [
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/meta@7.3.1": {
+      "integrity": "sha512-NWsfOE5RVtWpLQNkfOF/RrYvLRPwwruxhZUV0UFIzHqfiRJ50aO9Y6uLY4bwCUe2TumLJQSR4yaoA72Rmr2mnQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson"
+      ]
     },
     "@types/geojson@7946.0.16": {
       "integrity": "sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg=="
@@ -202,6 +236,9 @@
         "tiny-inflate"
       ]
     },
+    "tslib@2.8.1": {
+      "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="
+    },
     "typedarray@0.0.6": {
       "integrity": "sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA=="
     },
@@ -354,7 +391,10 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:@turf/center@6.5.0",
+      "npm:@turf/helpers@6.5.0",
       "npm:hono@3.12.0",
+      "npm:ngeohash@0.6.3",
       "npm:osmtogeojson@^3.0.0-beta.5",
       "npm:preact-render-to-string@6.3.1",
       "npm:preact@10.19.3"
