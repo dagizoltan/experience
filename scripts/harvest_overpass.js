@@ -7,14 +7,54 @@ import { CATEGORIES, COUNTRIES, USER_AGENT } from "./config_harvest.js";
 
 // Overpass API URL
 const OVERPASS_API = "https://overpass-api.de/api/interpreter";
+const OVERPASS_STATUS = "https://overpass-api.de/api/status";
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
+async function waitForSlot() {
+    try {
+        const res = await fetch(OVERPASS_STATUS, {
+             headers: { "User-Agent": USER_AGENT }
+        });
+        if (!res.ok) return; // Ignore errors, just proceed
+
+        const text = await res.text();
+
+        // Check for available slots
+        // Format: "X slots available now."
+        if (text.includes("slots available now")) {
+            // We have slots, but let's see how many.
+            // If it says "0 slots available now" (unlikely, usually phrasing changes), we wait.
+            // Actually, if we are blocked, it usually says:
+            // "Slot available after: 2024-..."
+            return;
+        }
+
+        // Check for wait time
+        const match = text.match(/Slot available after: (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z)/);
+        if (match) {
+            const availableTime = new Date(match[1]).getTime();
+            const now = Date.now();
+            const waitTime = availableTime - now;
+
+            if (waitTime > 0) {
+                console.log(`  ⏳ No slots. Waiting ${Math.ceil(waitTime/1000)}s for next slot...`);
+                // Add a buffer of 2 seconds
+                await sleep(waitTime + 2000);
+            }
+        }
+    } catch (e) {
+        console.warn("  ⚠️ Failed to check Overpass status:", e.message);
+    }
+}
+
 async function fetchOverpass(query, retries = 3) {
+  // Respect limits before asking
+  await waitForSlot();
+
   // Increased timeout to 180s (3 mins) to avoid 504 on large provinces
   const body = `[out:json][timeout:180];${query}`;
   console.log("  Asking Overpass...");
-  // console.log("  Query Body:", body);
 
   try {
     const res = await fetch(OVERPASS_API, {
@@ -39,7 +79,7 @@ async function fetchOverpass(query, retries = 3) {
            return null;
         }
       }
-      // Log response text for other errors
+
       const txt = await res.text();
       console.error(`  Overpass Error: ${res.status} ${res.statusText}`, txt.slice(0, 200));
       throw new Error(`Overpass Error: ${res.status} ${res.statusText}`);
@@ -148,8 +188,8 @@ async function run() {
                 console.log("  ⚠️ Chunk returned no data or failed.");
             }
 
-            // Small sleep between chunks to be polite
-            await sleep(1000);
+            // Increased sleep between chunks to 5s to be polite and avoid 429
+            await sleep(5000);
         }
 
         if (allElements.length === 0) {
@@ -158,8 +198,7 @@ async function run() {
              continue;
         }
 
-        // Deduplicate elements by ID (osm_type + osm_id)
-        // because different queries might overlap (though unlikely with strict amenity splits)
+        // Deduplicate elements by ID
         const uniqueElements = new Map();
         for (const el of allElements) {
             const key = `${el.type}/${el.id}`;
@@ -178,8 +217,8 @@ async function run() {
         const yamlContent = stringify(features);
         await Deno.writeTextFile(filepath, yamlContent);
 
-        // Sleep between regions
-        await sleep(5000);
+        // Increased sleep between regions to 10s
+        await sleep(10000);
       }
     }
   }

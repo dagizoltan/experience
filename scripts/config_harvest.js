@@ -3,13 +3,11 @@
 
 export const CATEGORIES = {
   gastronomy: {
-    // Split into multiple queries to avoid timeouts on large regions
+    // Split into chunks to balance between payload size (timeout) and request count (rate limit)
     queries: [
       `nwr["amenity"="restaurant"]`,
-      `nwr["amenity"="cafe"]`,
-      `nwr["amenity"="bar"]`,
-      `nwr["amenity"="pub"]`,
-      `nwr["amenity"="ice_cream"]`
+      `nwr["amenity"~"cafe|ice_cream"]`, // Grouped small types
+      `nwr["amenity"~"bar|pub"]`        // Grouped small types
     ],
     tags: ["food", "drink"]
   }
