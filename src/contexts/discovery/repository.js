@@ -2,23 +2,44 @@
 // src/contexts/discovery/repository.js
 
 import { encode, getCoveringGeohashes } from "./domain/geohash.js";
+import center from "npm:@turf/center";
+import { feature } from "npm:@turf/helpers";
 
 export const createPlaceRepository = ({ kv, ids, clock }) => {
 
-  const _prepareRecord = (place) => {
-    const id = place.id || ids.next();
+  const _calculateGeohash = (geometry, precision = 4) => {
+    let lat, lon;
+
+    if (geometry.type === 'Point') {
+      [lon, lat] = geometry.coordinates;
+    } else {
+      // For Polygon/LineString, calculate center
+      // geometry object is a valid GeoJSON geometry
+      const feat = feature(geometry);
+      const c = center(feat);
+      [lon, lat] = c.geometry.coordinates;
+    }
+
+    return encode(lat, lon, precision);
+  };
+
+  const _prepareRecord = (placeFeature) => {
+    // placeFeature must be a valid GeoJSON Feature
+    const id = placeFeature.id || ids.next();
     const now = clock.now();
 
     const record = {
-      ...place,
-      id,
-      updatedAt: now,
-      createdAt: place.createdAt || now,
+      ...placeFeature,
+      id, // Ensure ID is at root of record (Deno KV value), though valid GeoJSON allows id at root.
+      properties: {
+        ...placeFeature.properties,
+        updatedAt: now,
+        createdAt: placeFeature.properties.createdAt || now,
+      }
     };
 
-    const precision = 4;
-    const geohash = encode(record.geometry.coordinates[1], record.geometry.coordinates[0], precision);
-    record.geohash = geohash;
+    const geohash = _calculateGeohash(record.geometry);
+    record.geohash = geohash; // Store geohash at root for internal use, though not part of strict GeoJSON
 
     return record;
   };
@@ -30,7 +51,14 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     // 2. Geospatial Index
     tx.set(['index_geo', 4, record.geohash, record.id], record.id);
 
-    // 3. Search Index
+    // 3. Category Index (New)
+    // Assuming properties.category exists.
+    if (record.properties.category) {
+       // Index by Category + Geohash to allow "Restaurants in this area"
+       tx.set(['index_category', record.properties.category, record.geohash, record.id], record.id);
+    }
+
+    // 4. Search Index
     const tokens = new Set([
       ...record.properties.name.toLowerCase().split(/\s+/),
       ...(record.properties.tags || []).map(t => t.toLowerCase())
@@ -43,8 +71,8 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     }
   };
 
-  const save = async (place) => {
-    const record = _prepareRecord(place);
+  const save = async (placeFeature) => {
+    const record = _prepareRecord(placeFeature);
     const tx = kv.atomic();
     _addToTransaction(tx, record);
 
@@ -56,31 +84,28 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     return record;
   };
 
-  const saveAll = async (places) => {
+  const saveAll = async (placeFeatures) => {
     const BATCH_SIZE = 25;
     let currentTx = kv.atomic();
-    let opCount = 0; // rough count of operations
+    let opCount = 0;
     let placeCount = 0;
 
-    for (const place of places) {
+    for (const place of placeFeatures) {
       const record = _prepareRecord(place);
 
-      // Calculate ops for this place to check safety limits
-      // 1 (entity) + 1 (geo) + N (search tokens)
+      // Estimate ops
       const tokens = new Set([
         ...record.properties.name.toLowerCase().split(/\s+/),
         ...(record.properties.tags || []).map(t => t.toLowerCase())
       ]);
-      const ops = 2 + [...tokens].filter(t => t.length > 2).length;
+      // 1(entity) + 1(geo) + 1(category) + N(tokens)
+      const ops = 3 + [...tokens].filter(t => t.length > 2).length;
 
       _addToTransaction(currentTx, record);
 
       opCount += ops;
       placeCount++;
 
-      // Deno KV limit is ~1000 ops per transaction.
-      // We also want to keep payload size reasonable.
-      // BATCH_SIZE 25 is conservative.
       if (placeCount >= BATCH_SIZE || opCount >= 500) {
         const result = await currentTx.commit();
         if (!result.ok) throw new Error('Failed to commit batch during saveAll');
@@ -98,13 +123,10 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
 
   const findInBounds = async (bbox) => {
     const { minLat, minLon, maxLat, maxLon } = bbox;
-
-    // Always query at precision 4 as that is what we indexed
     const precision = 4;
     const hashes = getCoveringGeohashes(minLat, minLon, maxLat, maxLon, precision);
 
     if (hashes.length > 500) {
-      // Safety cap for demo
       hashes.length = 500;
     }
 
@@ -150,6 +172,7 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     const prefixes = [
       ['tenant', 'default', 'places'],
       ['index_geo'],
+      ['index_category'],
       ['index_search']
     ];
 

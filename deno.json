@@ -1,7 +1,8 @@
 {
   "tasks": {
     "start": "deno run --allow-all --unstable-kv src/adapters/web/server.tsx",
-    "seed": "deno run --allow-all --unstable-kv scripts/seed_catalonia.js"
+    "harvest": "deno run --allow-all --unstable-kv scripts/harvest_overpass.js",
+    "seed": "deno run --allow-all --unstable-kv scripts/seed_europe.js"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
@@ -9,8 +10,12 @@
   },
   "unstable": ["kv"],
   "imports": {
+    "osmtogeojson": "npm:osmtogeojson@^3.0.0-beta.5",
     "preact": "npm:preact@10.19.3",
     "preact-render-to-string": "npm:preact-render-to-string@6.3.1",
-    "hono": "npm:hono@3.12.0"
+    "hono": "npm:hono@3.12.0",
+    "ngeohash": "npm:ngeohash@0.6.3",
+    "@turf/center": "npm:@turf/center@6.5.0",
+    "@turf/helpers": "npm:@turf/helpers@6.5.0"
   }
 }

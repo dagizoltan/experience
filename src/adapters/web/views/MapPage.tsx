@@ -63,11 +63,7 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
           .tag { background: #eee; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; }
 
-          /* Map Markers */
-          .marker { cursor: pointer; transition: transform 0.2s; }
-          .marker:hover { transform: scale(1.2); z-index: 100; }
-
-          /* Open Button (when sidebar closed) */
+          /* Open Button */
           .open-sidebar-btn {
             position: absolute; top: 20px; left: 20px;
             z-index: 10;
@@ -75,10 +71,9 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
             border-radius: 4px; border: none;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             cursor: pointer; font-weight: bold;
-            display: none; /* Toggled by JS */
+            display: none;
           }
           .open-sidebar-btn.visible { display: block; }
-
         `}} />
       </head>
       <body>
@@ -89,9 +84,8 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
               <button id="close-sidebar-btn" class="toggle-btn" title="Close Sidebar"><i class="fa-solid fa-chevron-left"></i></button>
             </div>
             <div id="sidebar-content" class="sidebar-content">
-              {/* Content injected by JS */}
               <div id="list-view">
-                <p class="text-muted">Explore the map to see experiences here.</p>
+                <p class="text-muted">Loading...</p>
               </div>
               <div id="detail-view" style="display:none;"></div>
             </div>
@@ -102,17 +96,16 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           <div id="map"></div>
         </div>
 
-        {/* Inject Initial Data */}
         <script dangerouslySetInnerHTML={{ __html: `
           window.__INITIAL_STATE__ = ${jsonState};
         `}} />
 
         <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+        <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `
           const { places: initialPlacesData, view, mapApiKey } = window.__INITIAL_STATE__;
 
           // State
-          let allPlaces = initialPlacesData.features || [];
           let visiblePlaces = [];
           let selectedPlace = null;
           let isSidebarOpen = true;
@@ -124,6 +117,22 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           const detailView = document.getElementById('detail-view');
           const searchInput = document.getElementById('search-input');
 
+          // --- Colors ---
+          const CATEGORY_COLORS = {
+               gastronomy: '#e74c3c',
+               culture: '#3498db',
+               nature: '#2ecc71',
+               nightlife: '#9b59b6',
+               shopping: '#f39c12',
+               wellness: '#1abc9c',
+               education: '#8e44ad',
+               hidden_gems: '#7f8c8d',
+               family: '#e91e63',
+               sports: '#d35400',
+               default: '#333'
+          };
+          const getCategoryColor = (cat) => CATEGORY_COLORS[cat] || CATEGORY_COLORS.default;
+
           // --- Map Initialization ---
           const map = new maplibregl.Map({
             container: 'map',
@@ -132,105 +141,195 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
             zoom: view.zoom
           });
 
-          // Adjust map padding when sidebar is open so center is correct visually
-          // But for this MVP, we might skip complex padding logic to avoid jumpiness.
+          // --- Layers Setup ---
+          map.on('load', () => {
+            // Add Source
+            map.addSource('places', {
+              type: 'geojson',
+              data: initialPlacesData
+            });
 
-          // --- Helpers ---
-          const getCategoryColor = (cat) => {
-             const colors = {
-               gastronomy: '#e74c3c', // Red
-               culture: '#3498db',    // Blue
-               nature: '#2ecc71',     // Green
-               nightlife: '#9b59b6',  // Purple
-               shopping: '#f39c12',   // Orange
-               wellness: '#1abc9c',   // Teal
-               education: '#8e44ad',  // Dark Purple
-               hidden_gems: '#7f8c8d',// Gray
-               family: '#e91e63'      // Pink
+            // 1. Polygons (Fill)
+            map.addLayer({
+              'id': 'places-fill',
+              'type': 'fill',
+              'source': 'places',
+              'filter': ['==', '$type', 'Polygon'],
+              'paint': {
+                'fill-color': ['match', ['get', 'category'],
+                  'nature', '#2ecc71',
+                  'culture', '#3498db',
+                  'sports', '#d35400',
+                  '#888'
+                ],
+                'fill-opacity': 0.4
+              }
+            });
+
+            // 2. Lines (LineString)
+            map.addLayer({
+              'id': 'places-line',
+              'type': 'line',
+              'source': 'places',
+              'filter': ['==', '$type', 'LineString'],
+              'paint': {
+                'line-color': ['match', ['get', 'category'],
+                  'nature', '#2ecc71',
+                  '#888'
+                ],
+                'line-width': 3
+              }
+            });
+
+            // 3. Points (Circle)
+            // Use circle for performance instead of markers
+            map.addLayer({
+              'id': 'places-circle',
+              'type': 'circle',
+              'source': 'places',
+              'filter': ['==', '$type', 'Point'],
+              'paint': {
+                'circle-radius': 6,
+                'circle-color': ['match', ['get', 'category'],
+                   'gastronomy', CATEGORY_COLORS.gastronomy,
+                   'culture', CATEGORY_COLORS.culture,
+                   'nature', CATEGORY_COLORS.nature,
+                   'nightlife', CATEGORY_COLORS.nightlife,
+                   'shopping', CATEGORY_COLORS.shopping,
+                   'wellness', CATEGORY_COLORS.wellness,
+                   'education', CATEGORY_COLORS.education,
+                   'hidden_gems', CATEGORY_COLORS.hidden_gems,
+                   'family', CATEGORY_COLORS.family,
+                   'sports', CATEGORY_COLORS.sports,
+                   CATEGORY_COLORS.default
+                ],
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff'
+              }
+            });
+
+            // Labels for points (optional, maybe clutter)
+            /*
+            map.addLayer({
+              'id': 'places-label',
+              'type': 'symbol',
+              'source': 'places',
+              'filter': ['==', '$type', 'Point'],
+              'layout': {
+                'text-field': ['get', 'name'],
+                'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+                'text-radial-offset': 0.5,
+                'text-justify': 'auto',
+                'text-size': 10
+              }
+            });
+            */
+
+            // Initial calculation
+            updateVisiblePlaces();
+          });
+
+          // --- Interaction ---
+          const layers = ['places-fill', 'places-line', 'places-circle'];
+
+          map.on('click', layers, (e) => {
+             const feature = e.features[0];
+             // Ensure properties are parsed if needed (usually MapLibre gives flat props)
+             // We construct a cleaner object
+             const place = {
+               geometry: feature.geometry,
+               properties: feature.properties
              };
-             return colors[cat] || '#333';
-          };
 
-          const markers = [];
+             // Parse tags if stringified
+             if (typeof place.properties.tags === 'string') {
+                try { place.properties.tags = JSON.parse(place.properties.tags); } catch(e){}
+             }
+             if (!Array.isArray(place.properties.tags)) place.properties.tags = [];
 
-          const renderMarkers = (features) => {
-            markers.forEach(m => m.remove());
-            markers.length = 0;
+             selectPlace(place);
+          });
 
-            features.forEach(p => {
-              const el = document.createElement('div');
-              el.className = 'marker';
-              el.style.width = '16px';
-              el.style.height = '16px';
-              el.style.backgroundColor = getCategoryColor(p.properties.category);
-              el.style.borderRadius = '50%';
-              el.style.border = '2px solid white';
-              el.style.boxShadow = '0 1px 3px rgba(0,0,0,0.3)';
+          map.on('mouseenter', layers, () => map.getCanvas().style.cursor = 'pointer');
+          map.on('mouseleave', layers, () => map.getCanvas().style.cursor = '');
 
-              const marker = new maplibregl.Marker({ element: el })
-                .setLngLat(p.geometry.coordinates)
-                .addTo(map);
+          map.on('moveend', updateVisiblePlaces);
 
-              // Click handling
-              el.addEventListener('click', (e) => {
-                 e.stopPropagation(); // Prevent map click
-                 selectPlace(p);
-              });
+          // --- Logic ---
+          function updateVisiblePlaces() {
+             // For client-side large datasets, querying rendered features is efficient
+             const features = map.queryRenderedFeatures({ layers: layers });
 
-              markers.push(marker);
-            });
-          };
+             // Deduplicate by ID
+             const seen = new Set();
+             visiblePlaces = [];
 
-          const selectPlace = (place) => {
-            selectedPlace = place;
-            renderDetail(place);
-            if (!isSidebarOpen) toggleSidebar();
+             for (const f of features) {
+               const id = f.properties.osm_id || f.properties.name;
+               if (!seen.has(id)) {
+                 seen.add(id);
+                 // Normalize
+                 let tags = f.properties.tags;
+                 if (typeof tags === 'string') {
+                     try { tags = JSON.parse(tags); } catch(e){ tags = []; }
+                 }
 
-            // Fly to place
-            map.flyTo({
-              center: place.geometry.coordinates,
-              zoom: 14,
-              essential: true
-            });
+                 visiblePlaces.push({
+                   ...f,
+                   properties: { ...f.properties, tags }
+                 });
+               }
+             }
 
-            // Show Popup
-            new maplibregl.Popup({ offset: 25 })
-               .setLngLat(place.geometry.coordinates)
-               .setHTML(\`<b>\${place.properties.name}</b><br>\${place.properties.category}\`)
-               .addTo(map);
-          };
+             // Cap list size for performance
+             if (visiblePlaces.length > 100) visiblePlaces.length = 100;
 
-          const clearSelection = () => {
-             selectedPlace = null;
-             renderList(); // Switch back to list
-          };
+             if (!selectedPlace) {
+                renderList();
+             }
+          }
 
-          // --- Sidebar Rendering ---
-          const renderList = () => {
+          function selectPlace(place) {
+             selectedPlace = place;
+             renderDetail(place);
+             if (!isSidebarOpen) toggleSidebar();
+
+             // Fly to centroid
+             const center = turf.center(place).geometry.coordinates;
+
+             map.flyTo({
+                center: center,
+                zoom: Math.max(map.getZoom(), 14),
+                essential: true
+             });
+          }
+
+          function renderList() {
             detailView.style.display = 'none';
             listView.style.display = 'block';
 
             if (visiblePlaces.length === 0) {
-              listView.innerHTML = '<p style="padding:10px; color:#888;">No places visible in this area. Try zooming out or panning.</p>';
+              listView.innerHTML = '<p style="padding:10px; color:#888;">No places visible. Zoom in or pan.</p>';
               return;
             }
 
             listView.innerHTML = visiblePlaces.map(p => \`
-              <div class="place-item" data-id="\${p.properties.name}">
+              <div class="place-item" onclick="selectPlaceByName('\${p.properties.name.replace(/'/g, "\\\\'")}')">
                  <h3>\${p.properties.name}</h3>
                  <div class="meta">
-                    <span class="category-tag" style="color:\${getCategoryColor(p.properties.category)}">\${p.properties.category.replace('_', ' ')}</span>
+                    <span class="category-tag" style="color:\${getCategoryColor(p.properties.category)}">\${(p.properties.category||'').replace('_', ' ')}</span>
                  </div>
               </div>
             \`).join('');
+          }
 
-            // Add listeners
-            listView.querySelectorAll('.place-item').forEach((el, index) => {
-               el.onclick = () => selectPlace(visiblePlaces[index]);
-            });
+          // Hack to make onclick work with object passing from HTML string
+          window.selectPlaceByName = (name) => {
+             const p = visiblePlaces.find(x => x.properties.name === name);
+             if (p) selectPlace(p);
           };
 
-          const renderDetail = (place) => {
+          function renderDetail(place) {
              listView.style.display = 'none';
              detailView.style.display = 'block';
 
@@ -239,17 +338,23 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
              detailView.innerHTML = \`
                <button id="back-to-list" class="back-btn">&larr; Back to list</button>
                <h2 style="color:\${getCategoryColor(place.properties.category)}">\${place.properties.name}</h2>
-               <p><strong>Category:</strong> \${place.properties.category.replace('_', ' ')}</p>
+               <p><strong>Category:</strong> \${(place.properties.category||'').replace('_', ' ')}</p>
                <div class="tags">\${tagsHtml}</div>
                <div style="margin-top:20px; padding:15px; background:#f0f0f0; border-radius:8px;">
-                  <p style="margin:0; font-style:italic;">Real experience details would go here...</p>
+                  <p style="margin:0; font-style:italic;">
+                    \${place.geometry.type} Geometry <br/>
+                    OSM ID: \${place.properties.osm_id || 'N/A'}
+                  </p>
                </div>
              \`;
 
-             document.getElementById('back-to-list').onclick = clearSelection;
-          };
+             document.getElementById('back-to-list').onclick = () => {
+                selectedPlace = null;
+                renderList();
+             };
+          }
 
-          const toggleSidebar = () => {
+          function toggleSidebar() {
              isSidebarOpen = !isSidebarOpen;
              if (isSidebarOpen) {
                 sidebar.classList.remove('closed');
@@ -258,59 +363,11 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
                 sidebar.classList.add('closed');
                 openBtn.classList.add('visible');
              }
-             map.resize(); // Resize map to fit new space if we were changing container size, but here we overlay.
-          };
-
-          // --- Logic ---
-          const updateVisiblePlaces = () => {
-             const bounds = map.getBounds();
-
-             // Simple client-side bounding box check
-             // In a real app with millions of points, we'd fetch from server.
-             // Here we have ~120 points loaded, so filtering is fast.
-             visiblePlaces = allPlaces.filter(p => {
-                const [lon, lat] = p.geometry.coordinates;
-                return bounds.contains([lon, lat]);
-             });
-
-             // If we are in list view, re-render
-             if (!selectedPlace) {
-                renderList();
-             }
-          };
-
-          // --- Listeners ---
-          map.on('load', () => {
-             renderMarkers(allPlaces);
-             updateVisiblePlaces();
-          });
-
-          map.on('moveend', () => {
-             updateVisiblePlaces();
-          });
+             map.resize();
+          }
 
           document.getElementById('close-sidebar-btn').onclick = toggleSidebar;
           document.getElementById('open-sidebar-btn').onclick = toggleSidebar;
-
-          // Search Logic
-          searchInput.onkeyup = async (e) => {
-             if (e.key === 'Enter') {
-               const q = searchInput.value;
-               const res = await fetch(\`/api/search?q=\${encodeURIComponent(q)}\`);
-               const data = await res.json();
-
-               if (data.features && data.features.length > 0) {
-                  // Fit bounds to search results
-                  const bounds = new maplibregl.LngLatBounds();
-                  data.features.forEach(f => bounds.extend(f.geometry.coordinates));
-                  map.fitBounds(bounds, { padding: 50 });
-
-                  // Update will trigger on moveend
-               } else {
-                  alert('No places found');
-               }
-             }
-          };
 
         `}} />
       </body>
