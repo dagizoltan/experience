@@ -3,15 +3,16 @@
 
 export const CATEGORIES = {
   gastronomy: {
-    // Split into granular chunks to avoid 504 Timeouts.
-    // Heavy categories (restaurant) are split by element type (Node vs Way/Relation).
-    queries: [
-      `node["amenity"="restaurant"]`, // ~50% of data, fast
-      `wr["amenity"="restaurant"]`,   // ~50% of data, slow
-      `nwr["amenity"~"cafe|ice_cream"]`,
-      `nwr["amenity"~"bar|pub"]`
-    ],
+    query: `nwr["amenity"~"restaurant|cafe|bar|pub|ice_cream"]`,
     tags: ["food", "drink"]
+  },
+  culture: {
+    query: `nwr["tourism"~"museum|artwork|attraction|viewpoint|gallery"]`,
+    tags: ["culture", "art", "history"]
+  },
+  nature: {
+    query: `nwr["leisure"~"park|garden|nature_reserve"]`,
+    tags: ["nature", "outdoors"]
   }
 };
 
