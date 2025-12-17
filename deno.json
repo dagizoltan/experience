@@ -1,14 +1,16 @@
 {
   "tasks": {
     "start": "deno run --allow-all --unstable-kv src/adapters/web/server.tsx",
-    "harvest": "deno run --allow-all --unstable-kv scripts/harvest_overpass.js",
-    "seed": "deno run --allow-all --unstable-kv scripts/seed_europe.js"
+    "harvest": "deno run --allow-all --unstable-kv src/adapters/cli/harvest.js",
+    "seed": "deno run --allow-all --unstable-kv src/adapters/cli/seed.js"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "unstable": ["kv"],
+  "unstable": [
+    "kv"
+  ],
   "imports": {
     "preact": "npm:preact@10.19.3",
     "preact-render-to-string": "npm:preact-render-to-string@6.3.1",

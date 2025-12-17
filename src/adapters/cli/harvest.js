@@ -1,9 +1,9 @@
 
-// scripts/harvest_overpass.js
+// src/adapters/cli/harvest.js
 import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
 import { ensureDir } from "https://deno.land/std@0.224.0/fs/mod.ts";
 import { stringify } from "https://deno.land/std@0.224.0/yaml/mod.ts";
-import { CATEGORIES, COUNTRIES, USER_AGENT } from "./config_harvest.js";
+import { CATEGORIES, COUNTRIES, USER_AGENT } from "./harvest_config.js";
 
 // Overpass API URL
 const OVERPASS_API = "https://overpass-api.de/api/interpreter";
@@ -94,14 +94,13 @@ function toGeoJSON(element, categoryKey, categoryTags) {
 }
 
 async function run() {
-  console.log("🚜 Starting Optimized Harvest (Spain Gastronomy Focus)...");
+  console.log("🚜 Starting Optimized Harvest (Spain Multicategory)...");
   const outDir = join(Deno.cwd(), "seeds/europe");
   await ensureDir(outDir);
 
   for (const [country, regions] of Object.entries(COUNTRIES)) {
     console.log(`\n🌍 Country: ${country.toUpperCase()}`);
 
-    // For verification, we can limit loop here if needed, but committing full loop for user.
     for (const region of regions) {
       console.log(`\n📍 Region: ${region.name} (${region.areaId})`);
 
