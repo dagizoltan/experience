@@ -14,6 +14,7 @@ async function fetchOverpass(query, retries = 3) {
   // Increased timeout to 180s (3 mins) to avoid 504 on large provinces
   const body = `[out:json][timeout:180];${query}`;
   console.log("  Asking Overpass...");
+  // console.log("  Query Body:", body);
 
   try {
     const res = await fetch(OVERPASS_API, {
@@ -38,10 +39,17 @@ async function fetchOverpass(query, retries = 3) {
            return null;
         }
       }
+      // Log response text for other errors
+      const txt = await res.text();
+      console.error(`  Overpass Error: ${res.status} ${res.statusText}`, txt.slice(0, 200));
       throw new Error(`Overpass Error: ${res.status} ${res.statusText}`);
     }
 
-    return await res.json();
+    const data = await res.json();
+    if (data.remark) {
+        console.log("  ⚠️ Overpass Remark:", data.remark);
+    }
+    return data;
   } catch (err) {
     console.error("  ❌ Request failed:", err.message);
     if (retries > 0) {
@@ -101,7 +109,6 @@ async function run() {
   for (const [country, regions] of Object.entries(COUNTRIES)) {
     console.log(`\n🌍 Country: ${country.toUpperCase()}`);
 
-    // For verification, we can limit loop here if needed, but committing full loop for user.
     for (const region of regions) {
       console.log(`\n📍 Region: ${region.name} (${region.areaId})`);
 
@@ -111,36 +118,58 @@ async function run() {
         const filename = `${catKey}-${country}-${region.name.toLowerCase().replace(/_/g, '-')}.yaml`;
         const filepath = join(outDir, filename);
 
-        // Optional: Skip if already exists to resume?
-        // const exists = await Deno.stat(filepath).then(() => true).catch(() => false);
-        // if (exists) { console.log("    Skipping (already exists)"); continue; }
+        // Normalize config to array of queries
+        const queryList = catConfig.queries || [catConfig.query];
+        let allElements = [];
 
-        // Construct Query:
-        const lines = catConfig.query.split(';').map(l => l.trim()).filter(l => l);
-        let parts;
+        for (const q of queryList) {
+            // Construct Query:
+            const lines = q.split(';').map(l => l.trim()).filter(l => l);
+            let parts;
 
-        if (region.areaId === 0) {
-             parts = lines.map(line => `${line};`).join('\n');
-        } else {
-             parts = lines.map(line => `${line}(area:${region.areaId});`).join('\n');
+            if (region.areaId === 0) {
+                 parts = lines.map(line => `${line};`).join('\n');
+            } else {
+                 parts = lines.map(line => `${line}(area:${region.areaId});`).join('\n');
+            }
+
+            const fullQuery = `
+              (${parts});
+              out center;
+            `;
+
+            console.log(`  Requesting chunk: ${q.substring(0, 50)}...`);
+            const data = await fetchOverpass(fullQuery);
+
+            if (data && data.elements) {
+                console.log(`  ✅ Chunk got ${data.elements.length} raw elements.`);
+                allElements = allElements.concat(data.elements);
+            } else {
+                console.log("  ⚠️ Chunk returned no data or failed.");
+            }
+
+            // Small sleep between chunks to be polite
+            await sleep(1000);
         }
 
-        const fullQuery = `
-          (${parts});
-          out center;
-        `;
-
-        const data = await fetchOverpass(fullQuery);
-
-        if (!data || !data.elements || data.elements.length === 0) {
-          console.log("  ⚠️ No results.");
-          await sleep(2000);
-          continue;
+        if (allElements.length === 0) {
+             console.log("  ⚠️ No results for any chunk.");
+             await sleep(2000);
+             continue;
         }
 
-        console.log(`  ✅ Got ${data.elements.length} raw elements.`);
+        // Deduplicate elements by ID (osm_type + osm_id)
+        // because different queries might overlap (though unlikely with strict amenity splits)
+        const uniqueElements = new Map();
+        for (const el of allElements) {
+            const key = `${el.type}/${el.id}`;
+            if (!uniqueElements.has(key)) {
+                uniqueElements.set(key, el);
+            }
+        }
+        console.log(`  Total unique elements: ${uniqueElements.size}`);
 
-        const features = data.elements
+        const features = Array.from(uniqueElements.values())
           .map(e => toGeoJSON(e, catKey, catConfig.tags))
           .filter(f => f !== null);
 
@@ -149,7 +178,7 @@ async function run() {
         const yamlContent = stringify(features);
         await Deno.writeTextFile(filepath, yamlContent);
 
-        // Increased sleep to 5s to play nice
+        // Sleep between regions
         await sleep(5000);
       }
     }
