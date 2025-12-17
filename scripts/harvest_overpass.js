@@ -52,8 +52,10 @@ async function fetchOverpass(query, retries = 3) {
   // Respect limits before asking
   await waitForSlot();
 
-  // Increased timeout to 180s (3 mins) to avoid 504 on large provinces
-  const body = `[out:json][timeout:180];${query}`;
+  // Increased timeout to 900s (15 mins) to avoid 504 on large provinces
+  // 504 means the gateway (Nginx) gave up, but 180s might be too short for the query to even finish.
+  // Pushing to 900s allows heavy queries to run if the server load permits.
+  const body = `[out:json][timeout:900];${query}`;
   console.log("  Asking Overpass...");
 
   try {
@@ -188,8 +190,8 @@ async function run() {
                 console.log("  ⚠️ Chunk returned no data or failed.");
             }
 
-            // Increased sleep between chunks to 5s to be polite and avoid 429
-            await sleep(5000);
+            // Increased sleep between chunks to 20s as requested by user ("keep some delay")
+            await sleep(20000);
         }
 
         if (allElements.length === 0) {
@@ -217,8 +219,8 @@ async function run() {
         const yamlContent = stringify(features);
         await Deno.writeTextFile(filepath, yamlContent);
 
-        // Increased sleep between regions to 10s
-        await sleep(10000);
+        // Increased sleep between regions to 30s
+        await sleep(30000);
       }
     }
   }

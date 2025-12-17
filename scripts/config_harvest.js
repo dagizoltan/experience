@@ -3,11 +3,13 @@
 
 export const CATEGORIES = {
   gastronomy: {
-    // Split into chunks to balance between payload size (timeout) and request count (rate limit)
+    // Split into granular chunks to avoid 504 Timeouts.
+    // Heavy categories (restaurant) are split by element type (Node vs Way/Relation).
     queries: [
-      `nwr["amenity"="restaurant"]`,
-      `nwr["amenity"~"cafe|ice_cream"]`, // Grouped small types
-      `nwr["amenity"~"bar|pub"]`        // Grouped small types
+      `node["amenity"="restaurant"]`, // ~50% of data, fast
+      `wr["amenity"="restaurant"]`,   // ~50% of data, slow
+      `nwr["amenity"~"cafe|ice_cream"]`,
+      `nwr["amenity"~"bar|pub"]`
     ],
     tags: ["food", "drink"]
   }
