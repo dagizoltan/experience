@@ -111,6 +111,15 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
           let isSidebarOpen = true;
           let debounceTimer = null;
 
+          // Client-side store to avoid duplicates and support incremental loading
+          // Key: Feature ID, Value: Feature
+          const featureStore = new Map();
+
+          // Initialize store with initial data
+          if (initialPlacesData.features) {
+             initialPlacesData.features.forEach(f => featureStore.set(f.id, f));
+          }
+
           // DOM Elements
           const sidebar = document.getElementById('sidebar');
           const openBtn = document.getElementById('open-sidebar-btn');
@@ -144,13 +153,16 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
 
           // --- Layers Setup ---
           map.on('load', () => {
-            // Add Source
+            // Add Source with Clustering
             map.addSource('places', {
               type: 'geojson',
-              data: initialPlacesData
+              data: { type: 'FeatureCollection', features: Array.from(featureStore.values()) },
+              cluster: true,
+              clusterMaxZoom: 14, // Max zoom to cluster points on
+              clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
             });
 
-            // 1. Polygons (Fill)
+            // 1. Polygons (Fill) - Not Clustered (Clustering only works for Points)
             map.addLayer({
               'id': 'places-fill',
               'type': 'fill',
@@ -167,7 +179,7 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
               }
             });
 
-            // 2. Lines (LineString)
+            // 2. Lines (LineString) - Not Clustered
             map.addLayer({
               'id': 'places-line',
               'type': 'line',
@@ -182,13 +194,56 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
               }
             });
 
-            // 3. Points (Circle)
-            // Use circle for performance instead of markers
+            // --- Cluster Layers ---
+
+            // 3. Cluster Circles
             map.addLayer({
-              'id': 'places-circle',
+              id: 'clusters',
+              type: 'circle',
+              source: 'places',
+              filter: ['has', 'point_count'],
+              paint: {
+                // Use step expressions (https://maplibre.org/maplibre-style-spec/#expressions-step)
+                'circle-color': [
+                    'step',
+                    ['get', 'point_count'],
+                    '#51bbd6',
+                    20,
+                    '#f1f075',
+                    50,
+                    '#f28cb1'
+                ],
+                'circle-radius': [
+                    'step',
+                    ['get', 'point_count'],
+                    20,
+                    20,
+                    30,
+                    50,
+                    40
+                ]
+              }
+            });
+
+            // 4. Cluster Count Labels
+            map.addLayer({
+              id: 'cluster-count',
+              type: 'symbol',
+              source: 'places',
+              filter: ['has', 'point_count'],
+              layout: {
+                'text-field': '{point_count_abbreviated}',
+                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+                'text-size': 12
+              }
+            });
+
+            // 5. Unclustered Points (Circle)
+            map.addLayer({
+              'id': 'unclustered-point',
               'type': 'circle',
               'source': 'places',
-              'filter': ['==', '$type', 'Point'],
+              'filter': ['!', ['has', 'point_count']],
               'paint': {
                 'circle-radius': 6,
                 'circle-color': ['match', ['get', 'category'],
@@ -209,23 +264,36 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
               }
             });
 
-            // Initial calculation
-            updateVisiblePlaces();
+            // Initial Fetch
+            fetchPlaces();
           });
 
           // --- Interaction ---
-          const layers = ['places-fill', 'places-line', 'places-circle'];
 
-          map.on('click', layers, (e) => {
+          // Click on Cluster: Zoom in
+          map.on('click', 'clusters', async (e) => {
+             const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
+             const clusterId = features[0].properties.cluster_id;
+             const source = map.getSource('places');
+
+             source.getClusterExpansionZoom(clusterId, (err, zoom) => {
+                 if (err) return;
+                 map.easeTo({
+                     center: features[0].geometry.coordinates,
+                     zoom: zoom
+                 });
+             });
+          });
+
+          // Click on Point/Poly/Line
+          const itemLayers = ['places-fill', 'places-line', 'unclustered-point'];
+          map.on('click', itemLayers, (e) => {
              const feature = e.features[0];
-             // Ensure properties are parsed if needed (usually MapLibre gives flat props)
-             // We construct a cleaner object
              const place = {
                geometry: feature.geometry,
                properties: feature.properties
              };
 
-             // Parse tags if stringified
              if (typeof place.properties.tags === 'string') {
                 try { place.properties.tags = JSON.parse(place.properties.tags); } catch(e){}
              }
@@ -234,8 +302,8 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
              selectPlace(place);
           });
 
-          map.on('mouseenter', layers, () => map.getCanvas().style.cursor = 'pointer');
-          map.on('mouseleave', layers, () => map.getCanvas().style.cursor = '');
+          map.on('mouseenter', ['clusters', ...itemLayers], () => map.getCanvas().style.cursor = 'pointer');
+          map.on('mouseleave', ['clusters', ...itemLayers], () => map.getCanvas().style.cursor = '');
 
           map.on('moveend', () => {
              // Debounce network requests
@@ -254,12 +322,27 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
                 const res = await fetch(\`/api/places?\${query}\`);
                 if (res.ok) {
                    const data = await res.json();
-                   // Update Map Source
-                   if (map.getSource('places')) {
-                       map.getSource('places').setData(data);
+
+                   // Incremental Update: Merge new features into store
+                   if (data.features) {
+                       let newCount = 0;
+                       data.features.forEach(f => {
+                           if (!featureStore.has(f.id)) {
+                               featureStore.set(f.id, f);
+                               newCount++;
+                           }
+                       });
+
+                       // Only update source if we have new data to avoid re-clustering calculation overhead
+                       if (newCount > 0) {
+                           map.getSource('places').setData({
+                               type: 'FeatureCollection',
+                               features: Array.from(featureStore.values())
+                           });
+                       }
+                       // Still update UI list based on current view
+                       updateVisiblePlaces();
                    }
-                   // Update UI
-                   updateVisiblePlaces();
                 }
              } catch (e) {
                 console.error("Failed to fetch places", e);
@@ -268,7 +351,7 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
 
           function updateVisiblePlaces() {
              // For client-side large datasets, querying rendered features is efficient
-             const features = map.queryRenderedFeatures({ layers: layers });
+             const features = map.queryRenderedFeatures({ layers: itemLayers });
 
              // Deduplicate by ID
              const seen = new Set();
@@ -333,7 +416,6 @@ export const MapPage = ({ initialPlaces, initialView, mapApiKey }) => {
             \`).join('');
           }
 
-          // Hack to make onclick work with object passing from HTML string
           window.selectPlaceByName = (name) => {
              const p = visiblePlaces.find(x => x.properties.name === name);
              if (p) selectPlace(p);

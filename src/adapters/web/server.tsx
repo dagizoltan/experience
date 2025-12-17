@@ -25,27 +25,21 @@ container.register('discovery.getPlacesInBounds', createGetPlacesInBounds, 'tran
 container.register('discovery.searchPlaces', createSearchPlaces, 'transient');
 
 app.get('/', async (c) => {
-  const getPlaces = container.resolve('discovery.getPlacesInBounds');
+  // Production Best Practice: Fast Initial Load
+  // Do NOT fetch places server-side. Serve shell, let client fetch relevant data.
 
-  // Focused View: Catalonia
+  const initialPlaces = { type: 'FeatureCollection', features: [] };
+
+  // Default View: Catalonia/Andorra area
   const view = {
     lat: 41.75,
     lon: 1.75,
-    zoom: 8,
-    minLat: 40.5, minLon: 0.0,
-    maxLat: 43.0, maxLon: 3.5
+    zoom: 8
   };
-
-  const places = await getPlaces({
-    minLat: view.minLat,
-    minLon: view.minLon,
-    maxLat: view.maxLat,
-    maxLon: view.maxLon
-  });
 
   const mapApiKey = Deno.env.get("MAPTILER_KEY") ?? "l6tjy6mKiv4oNiZNY4pt";
 
-  const html = render(<MapPage initialPlaces={places} initialView={view} mapApiKey={mapApiKey} />);
+  const html = render(<MapPage initialPlaces={initialPlaces} initialView={view} mapApiKey={mapApiKey} />);
   return c.html('<!DOCTYPE html>' + html);
 });
 

@@ -121,7 +121,7 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     }
   };
 
-  const findInBounds = async (bbox) => {
+  const findInBounds = async (bbox, limit = 2000) => {
     const { minLat, minLon, maxLat, maxLon } = bbox;
     const precision = 4;
     const hashes = getCoveringGeohashes(minLat, minLon, maxLat, maxLon, precision);
@@ -130,11 +130,13 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
       hashes.length = 500;
     }
 
+    // Parallel fetch of IDs
     const promises = hashes.map(async (hash) => {
       const iter = kv.list({ prefix: ['index_geo', precision, hash] });
       const ids = [];
       for await (const entry of iter) {
         ids.push(entry.value);
+        if (ids.length >= limit) break; // Optimization: stop scanning if we hit limit per hash (approx)
       }
       return ids;
     });
@@ -142,10 +144,22 @@ export const createPlaceRepository = ({ kv, ids, clock }) => {
     const idGroups = await Promise.all(promises);
     const uniqueIds = [...new Set(idGroups.flat())];
 
-    const placePromises = uniqueIds.map(id => kv.get(['tenant', 'default', 'places', id]));
-    const places = await Promise.all(placePromises);
+    // Apply strict limit to entity fetch
+    const limitedIds = uniqueIds.slice(0, limit);
 
-    return places.map(p => p.value).filter(p => p !== null);
+    // Fetch Entities
+    // Kv.getMany can fetch up to 10 keys
+    const places = [];
+    const BATCH_SIZE = 10;
+    for (let i = 0; i < limitedIds.length; i += BATCH_SIZE) {
+        const batchIds = limitedIds.slice(i, i + BATCH_SIZE).map(id => ['tenant', 'default', 'places', id]);
+        const batchResults = await kv.getMany(batchIds);
+        for (const res of batchResults) {
+            if (res.value) places.push(res.value);
+        }
+    }
+
+    return places;
   };
 
   const search = async (query) => {
