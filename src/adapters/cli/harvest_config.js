@@ -1,15 +1,55 @@
 
-// scripts/config_harvest.js
+// src/adapters/cli/harvest_config.js
 
 export const CATEGORIES = {
   gastronomy: {
     query: `nwr["amenity"~"restaurant|cafe|bar|pub|ice_cream"]`,
     tags: ["food", "drink"]
+  },
+  culture: {
+    query: `
+      nwr["tourism"="museum"];
+      nwr["amenity"="arts_centre"];
+      nwr["historic"~"castle|archaeological_site"];
+    `,
+    tags: ["culture", "history", "museum", "art"]
+  },
+  nature: {
+    query: `
+      nwr["leisure"~"park|nature_reserve"];
+      nwr["natural"~"beach|peak"];
+      nwr["tourism"="viewpoint"];
+    `,
+    tags: ["nature", "park", "viewpoint", "beach"]
   }
 };
 
 export const COUNTRIES = {
   spain: [
+    { name: "Andalucia", areaId: 3600349044 },
+    { name: "Aragon", areaId: 3600349045 },
+    { name: "Asturias", areaId: 3600349033 },
+    { name: "Baleares", areaId: 3600348981 }, // Illes Balears
+    { name: "Canarias", areaId: 3600349048 },
+    { name: "Cantabria", areaId: 3600349013 },
+    { name: "Castilla_La_Mancha", areaId: 3600349052 },
+    { name: "Castilla_y_Leon", areaId: 3600349041 },
+    { name: "Catalunya", areaId: 3600349053 },
+    { name: "Ceuta", areaId: 3601154756 },
+    { name: "Extremadura", areaId: 3600349050 },
+    { name: "Galicia", areaId: 3600349036 },
+    { name: "La_Rioja", areaId: 3600348991 },
+    { name: "Madrid", areaId: 3600349055 },
+    { name: "Melilla", areaId: 3601154757 },
+    { name: "Murcia", areaId: 3600349047 },
+    { name: "Navarra", areaId: 3600349027 },
+    { name: "Pais_Vasco", areaId: 3600349042 }, // Euskadi
+    { name: "Valencia", areaId: 3600349043 } // Comunitat Valenciana
+  ]
+};
+
+// Kept for reference
+export const PROVINCES_SPAIN = [
     { name: "Alava", areaId: 3600349013 },
     { name: "Albacete", areaId: 3600349010 },
     { name: "Alicante", areaId: 3600349011 },
@@ -60,27 +100,6 @@ export const COUNTRIES = {
     { name: "Vizcaya", areaId: 3600349028 },
     { name: "Zamora", areaId: 3600349025 },
     { name: "Zaragoza", areaId: 3600349026 }
-  ],
-  portugal: [
-    { name: "Aveiro", areaId: 3604272467 },
-    { name: "Beja", areaId: 3602074551 },
-    { name: "Braga", areaId: 3604156683 },
-    { name: "Braganca", areaId: 3604156684 },
-    { name: "Castelo_Branco", areaId: 3602897108 },
-    { name: "Coimbra", areaId: 3602914757 },
-    { name: "Evora", areaId: 3602074557 },
-    { name: "Faro", areaId: 3602074558 },
-    { name: "Guarda", areaId: 3602897105 },
-    { name: "Leiria", areaId: 3602897102 },
-    { name: "Lisboa", areaId: 3602897100 },
-    { name: "Portalegre", areaId: 3602897107 },
-    { name: "Porto", areaId: 3604272466 },
-    { name: "Santarem", areaId: 3602897106 },
-    { name: "Setubal", areaId: 3602074552 },
-    { name: "Viana_do_Castelo", areaId: 3604156681 },
-    { name: "Vila_Real", areaId: 3604156685 },
-    { name: "Viseu", areaId: 3602897103 }
-  ]
-};
+];
 
 export const USER_AGENT = "Jules_Discovery_App/2.0 (Harvest)";

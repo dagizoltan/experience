@@ -1,10 +1,10 @@
 
-// scripts/seed_europe.js
-import { createContainer } from "../src/core/container.js";
-import { createKv } from "../src/adapters/kv/index.js";
-import { createIds } from "../src/core/ports/ids.js";
-import { createClock } from "../src/core/ports/clock.js";
-import { createPlaceRepository } from "../src/contexts/discovery/repository.js";
+// src/adapters/cli/seed.js
+import { createContainer } from "../../core/container.js";
+import { createKv } from "../../adapters/kv/index.js";
+import { createIds } from "../../core/ports/ids.js";
+import { createClock } from "../../core/ports/clock.js";
+import { createPlaceRepository } from "../../contexts/discovery/repository.js";
 import { parse } from "https://deno.land/std@0.224.0/yaml/mod.ts";
 import { expandGlob } from "https://deno.land/std@0.224.0/fs/mod.ts";
 

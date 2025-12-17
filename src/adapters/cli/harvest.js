@@ -1,8 +1,9 @@
-// scripts/harvest_overpass.js
+
+// src/adapters/cli/harvest.js
 import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
 import { ensureDir } from "https://deno.land/std@0.224.0/fs/mod.ts";
 import { stringify } from "https://deno.land/std@0.224.0/yaml/mod.ts";
-import { CATEGORIES, COUNTRIES, USER_AGENT } from "./config_harvest.js";
+import { CATEGORIES, COUNTRIES, USER_AGENT } from "./harvest_config.js";
 
 // Overpass API URL
 const OVERPASS_API = "https://overpass-api.de/api/interpreter";
@@ -109,7 +110,7 @@ function toGeoJSON(element, categoryKey, categoryTags) {
 }
 
 async function run() {
-  console.log("🚜 Starting Optimized Harvest (Spain Gastronomy Focus)...");
+  console.log("🚜 Starting Optimized Harvest (Spain Multicategory)...");
   const outDir = join(Deno.cwd(), "seeds/europe");
   await ensureDir(outDir);
 
@@ -131,8 +132,12 @@ async function run() {
     const [country, regions] = countries[i];
     console.log(`\n🌍 Country: ${country.toUpperCase()}`);
 
+<<<<<<< HEAD:scripts/harvest_overpass.js
     for (let j = (i === checkpoint.countryIndex ? checkpoint.regionIndex : 0); j < regions.length; j++) {
       const region = regions[j];
+=======
+    for (const region of regions) {
+>>>>>>> chore/refactor-harvest-config-spain-4776807231959569386:src/adapters/cli/harvest.js
       console.log(`\n📍 Region: ${region.name} (${region.areaId})`);
 
       const categories = Object.entries(CATEGORIES);
