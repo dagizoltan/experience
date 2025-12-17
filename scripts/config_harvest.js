@@ -3,7 +3,14 @@
 
 export const CATEGORIES = {
   gastronomy: {
-    query: `nwr["amenity"~"restaurant|cafe|bar|pub|ice_cream"]`,
+    // Split into multiple queries to avoid timeouts on large regions
+    queries: [
+      `nwr["amenity"="restaurant"]`,
+      `nwr["amenity"="cafe"]`,
+      `nwr["amenity"="bar"]`,
+      `nwr["amenity"="pub"]`,
+      `nwr["amenity"="ice_cream"]`
+    ],
     tags: ["food", "drink"]
   }
 };
@@ -17,8 +24,8 @@ export const COUNTRIES = {
     { name: "Asturias", areaId: 3600349033 },
     { name: "Avila", areaId: 3600349019 },
     { name: "Badajoz", areaId: 3600348995 },
-    { name: "Baleares", areaId: 3600349038 },
-    { name: "Barcelona", areaId: 3602498642 },
+    { name: "Baleares", areaId: 3606426656 },
+    { name: "Barcelona", areaId: 3600349035 },
     { name: "Burgos", areaId: 3600349017 },
     { name: "Caceres", areaId: 3600348998 },
     { name: "Cadiz", areaId: 3600349043 },
