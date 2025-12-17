@@ -4,7 +4,7 @@ import { stringify } from "https://deno.land/std@0.224.0/yaml/mod.ts";
 export const OVERPASS_API_URL = "https://overpass-api.de/api/interpreter";
 export const NOMINATIM_API_URL = "https://nominatim.openstreetmap.org/search";
 
-// Maps OSM tags to our App's Taxonomy
+// Maps OSM tags to our Refined App Taxonomy
 export function mapToCategoryAndTags(osmTags) {
   let category = 'hidden_gems'; // default fallback
   let tags = [];
@@ -16,61 +16,86 @@ export function mapToCategoryAndTags(osmTags) {
     tags.push(...parts);
   };
 
-  // Culture
-  if (osmTags.tourism === 'museum' || osmTags.amenity === 'arts_centre') {
+  // --- CULTURE ---
+  if (osmTags.historic === 'castle' || osmTags.historic === 'ruins' || osmTags.historic === 'battlefield' || osmTags.historic === 'archaeological_site') {
     category = 'culture';
-    tags.push('museum', 'art');
-  } else if (osmTags.historic === 'castle' || osmTags.historic === 'monument' || osmTags.tourism === 'attraction') {
+    tags.push('history', osmTags.historic);
+  }
+  else if (osmTags.historic === 'monument' || osmTags.historic === 'memorial' || osmTags.tourism === 'attraction') {
     category = 'culture';
-    tags.push('history', 'landmark');
-  } else if (osmTags.historic === 'church' || osmTags.amenity === 'place_of_worship') {
+    tags.push('landmark', 'history');
+  }
+  else if (osmTags.tourism === 'museum' || osmTags.amenity === 'arts_centre' || osmTags.tourism === 'gallery') {
+    category = 'culture';
+    tags.push('art', 'museum');
+  }
+  else if (osmTags.amenity === 'place_of_worship' || osmTags.historic === 'church' || osmTags.historic === 'monastery') {
     category = 'culture';
     tags.push('religious', 'architecture');
+    if (osmTags.religion) addTags(osmTags.religion);
   }
 
-  // Gastronomy
-  else if (osmTags.amenity === 'restaurant' || osmTags.amenity === 'bar' || osmTags.amenity === 'cafe') {
+  // --- GASTRONOMY ---
+  else if (osmTags.amenity === 'restaurant') {
     category = 'gastronomy';
-    addTags(osmTags.amenity);
+    tags.push('restaurant');
     addTags(osmTags.cuisine);
   }
+  else if (osmTags.craft === 'winery' || osmTags.shop === 'wine' || osmTags.tourism === 'wine_cellar') {
+    category = 'gastronomy';
+    tags.push('winery', 'wine');
+  }
+  else if (osmTags.amenity === 'cafe' && (osmTags.historic || osmTags.cuisine === 'regional')) {
+    // Only capture historic or special cafes to avoid spam
+    category = 'gastronomy';
+    tags.push('cafe');
+  }
 
-  // Nature
-  else if (osmTags.natural === 'beach' || osmTags.natural === 'peak' || osmTags.natural === 'volcano') {
+  // --- NATURE ---
+  else if (osmTags.natural === 'beach') {
     category = 'nature';
-    addTags(osmTags.natural);
-  } else if (osmTags.leisure === 'park' || osmTags.leisure === 'nature_reserve') {
+    tags.push('beach', 'sea');
+  }
+  else if (osmTags.natural === 'peak' || osmTags.natural === 'cave_entrance' || osmTags.natural === 'cliff') {
+    category = 'nature';
+    tags.push('mountain', 'view');
+    if (osmTags.natural === 'cave_entrance') tags.push('cave');
+  }
+  else if (osmTags.leisure === 'park' || osmTags.leisure === 'nature_reserve' || osmTags.boundary === 'national_park') {
     category = 'nature';
     tags.push('park', 'outdoors');
   }
 
-  // Family
-  else if (osmTags.leisure === 'water_park' || osmTags.tourism === 'theme_park' || osmTags.tourism === 'zoo') {
+  // --- ENTERTAINMENT / FAMILY ---
+  else if (osmTags.tourism === 'theme_park' || osmTags.leisure === 'water_park') {
     category = 'family';
-    tags.push('fun', 'kids');
+    tags.push('theme_park', 'fun');
+    if (osmTags.leisure === 'water_park') tags.push('water_park');
+  }
+  else if (osmTags.tourism === 'zoo' || osmTags.tourism === 'aquarium') {
+    category = 'family';
+    tags.push('zoo', 'animals');
   }
 
-  // Wellness
-  else if (osmTags.amenity === 'spa' || osmTags.leisure === 'sauna') {
+  // --- WELLNESS ---
+  else if (osmTags.amenity === 'public_bath' || osmTags.leisure === 'sauna' || (osmTags.amenity === 'spa')) {
     category = 'wellness';
-    tags.push('relax', 'spa');
-  }
-
-  // Shopping
-  else if (osmTags.shop === 'mall' || osmTags.shop === 'market') {
-    category = 'shopping';
-    addTags(osmTags.shop);
+    tags.push('spa', 'relax');
+    if (osmTags.bath === 'thermal') tags.push('thermal');
   }
 
   // Deduplicate tags
   tags = [...new Set(tags)];
+
+  // Cleanup: Remove generic/useless tags
+  tags = tags.filter(t => t !== 'yes' && t !== 'no');
+
   return { category, tags };
 }
 
 // Fetch Area ID for a given place name (Country or Region)
 export async function getAreaId(placeName) {
-  console.log(`🔍 Resolving area ID for "${placeName}"...`);
-  // polygon_geojson=0 makes it faster, we just need the OSM ID
+  // console.log(`🔍 Resolving area ID for "${placeName}"...`);
   const url = `${NOMINATIM_API_URL}?q=${encodeURIComponent(placeName)}&format=json&polygon_geojson=0&limit=1`;
 
   const response = await fetch(url, {
@@ -80,10 +105,9 @@ export async function getAreaId(placeName) {
   if (!response.ok) throw new Error(`Nominatim API Error: ${response.statusText}`);
 
   const data = await response.json();
-  if (!data || data.length === 0) return null; // Not found
+  if (!data || data.length === 0) return null;
 
   const place = data[0];
-  // Prefer relations for administrative boundaries
   if (place.osm_type === 'relation') {
     return parseInt(place.osm_id) + 3600000000;
   }
@@ -97,7 +121,6 @@ export async function fetchSubRegions(countryName) {
 
   if (!countryAreaId) throw new Error(`Could not resolve country: ${countryName}`);
 
-  // Query for admin_level 4 (regions/autonomous communities) within the country
   const query = `
     [out:json][timeout:30];
     area(${countryAreaId})->.country;
@@ -114,7 +137,6 @@ export async function fetchSubRegions(countryName) {
   if (!response.ok) throw new Error(`Overpass Subregion Error: ${response.statusText}`);
 
   const data = await response.json();
-  // Extract English name, or local name
   return data.elements.map(el => el.tags['name:en'] || el.tags.name).filter(Boolean);
 }
 
