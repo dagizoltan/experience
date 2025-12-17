@@ -9,6 +9,13 @@ export function mapToCategoryAndTags(osmTags) {
   let category = 'hidden_gems'; // default fallback
   let tags = [];
 
+  // Helper to push split tags
+  const addTags = (value) => {
+    if (!value) return;
+    const parts = value.split(';').map(t => t.trim().toLowerCase());
+    tags.push(...parts);
+  };
+
   // Culture
   if (osmTags.tourism === 'museum' || osmTags.amenity === 'arts_centre') {
     category = 'culture';
@@ -24,14 +31,14 @@ export function mapToCategoryAndTags(osmTags) {
   // Gastronomy
   else if (osmTags.amenity === 'restaurant' || osmTags.amenity === 'bar' || osmTags.amenity === 'cafe') {
     category = 'gastronomy';
-    tags.push(osmTags.amenity);
-    if (osmTags.cuisine) tags.push(osmTags.cuisine);
+    addTags(osmTags.amenity);
+    addTags(osmTags.cuisine);
   }
 
   // Nature
   else if (osmTags.natural === 'beach' || osmTags.natural === 'peak' || osmTags.natural === 'volcano') {
     category = 'nature';
-    tags.push('nature', osmTags.natural);
+    addTags(osmTags.natural);
   } else if (osmTags.leisure === 'park' || osmTags.leisure === 'nature_reserve') {
     category = 'nature';
     tags.push('park', 'outdoors');
@@ -52,7 +59,7 @@ export function mapToCategoryAndTags(osmTags) {
   // Shopping
   else if (osmTags.shop === 'mall' || osmTags.shop === 'market') {
     category = 'shopping';
-    tags.push(osmTags.shop);
+    addTags(osmTags.shop);
   }
 
   // Deduplicate tags
