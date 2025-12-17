@@ -10,8 +10,9 @@ const OVERPASS_API = "https://overpass-api.de/api/interpreter";
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-async function fetchOverpass(query) {
-  const body = `[out:json][timeout:60];${query}`;
+async function fetchOverpass(query, retries = 3) {
+  // Increased timeout to 180s (3 mins) to avoid 504 on large provinces
+  const body = `[out:json][timeout:180];${query}`;
   console.log("  Asking Overpass...");
 
   try {
@@ -23,9 +24,19 @@ async function fetchOverpass(query) {
 
     if (!res.ok) {
       if (res.status === 429) {
-        console.log("  ⚠️ Rate limited. Waiting 30s...");
-        await sleep(30000);
-        return fetchOverpass(query);
+        console.log("  ⚠️ Rate limited (429). Waiting 60s...");
+        await sleep(60000);
+        return fetchOverpass(query, retries);
+      }
+      if (res.status === 504) {
+        if (retries > 0) {
+           console.log(`  ⚠️ Gateway Timeout (504). Retrying in 60s... (${retries} left)`);
+           await sleep(60000);
+           return fetchOverpass(query, retries - 1);
+        } else {
+           console.error("  ❌ Gateway Timeout (504). No retries left.");
+           return null;
+        }
       }
       throw new Error(`Overpass Error: ${res.status} ${res.statusText}`);
     }
@@ -33,6 +44,11 @@ async function fetchOverpass(query) {
     return await res.json();
   } catch (err) {
     console.error("  ❌ Request failed:", err.message);
+    if (retries > 0) {
+       console.log(`  Retrying network error in 30s... (${retries} left)`);
+       await sleep(30000);
+       return fetchOverpass(query, retries - 1);
+    }
     return null;
   }
 }
@@ -78,13 +94,14 @@ function toGeoJSON(element, categoryKey, categoryTags) {
 }
 
 async function run() {
-  console.log("🚜 Starting Optimized Harvest (Points Only)...");
+  console.log("🚜 Starting Optimized Harvest (Spain Gastronomy Focus)...");
   const outDir = join(Deno.cwd(), "seeds/europe");
   await ensureDir(outDir);
 
   for (const [country, regions] of Object.entries(COUNTRIES)) {
     console.log(`\n🌍 Country: ${country.toUpperCase()}`);
 
+    // For verification, we can limit loop here if needed, but committing full loop for user.
     for (const region of regions) {
       console.log(`\n📍 Region: ${region.name} (${region.areaId})`);
 
@@ -94,11 +111,14 @@ async function run() {
         const filename = `${catKey}-${country}-${region.name.toLowerCase().replace(/_/g, '-')}.yaml`;
         const filepath = join(outDir, filename);
 
+        // Optional: Skip if already exists to resume?
+        // const exists = await Deno.stat(filepath).then(() => true).catch(() => false);
+        // if (exists) { console.log("    Skipping (already exists)"); continue; }
+
         // Construct Query:
         const lines = catConfig.query.split(';').map(l => l.trim()).filter(l => l);
         let parts;
 
-        // Handle test case where areaId is 0 (direct query) vs area filtering
         if (region.areaId === 0) {
              parts = lines.map(line => `${line};`).join('\n');
         } else {
@@ -114,7 +134,7 @@ async function run() {
 
         if (!data || !data.elements || data.elements.length === 0) {
           console.log("  ⚠️ No results.");
-          await sleep(1000);
+          await sleep(2000);
           continue;
         }
 
@@ -129,7 +149,8 @@ async function run() {
         const yamlContent = stringify(features);
         await Deno.writeTextFile(filepath, yamlContent);
 
-        await sleep(2000);
+        // Increased sleep to 5s to play nice
+        await sleep(5000);
       }
     }
   }
